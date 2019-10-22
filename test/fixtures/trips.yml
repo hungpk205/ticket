@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2019-10-22 14:59:55
+  driver_major_id: 1
+  driver_minor_id: 1
+  price: 9.99
+  route: one
+  bus: one
+
+two:
+  start_time: 2019-10-22 14:59:55
+  driver_major_id: 1
+  driver_minor_id: 1
+  price: 9.99
+  route: two
+  bus: two
