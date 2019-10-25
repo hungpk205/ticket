@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.5.7"
 
-gem "rails_admin"
 gem 'rails', '~> 5.2.3'
 gem 'bcrypt', platforms: :ruby
 gem "cancancan"
@@ -12,11 +11,13 @@ gem "carrierwave", "1.1.0"
 gem "mini_magick", "4.9.4"
 gem "fog", "1.40.0"
 gem "config"
-gem "bootstrap-sass", "3.4.1"
+gem "bootstrap-sass"
 gem "jquery-turbolinks"
 gem "jquery"
 gem "jquery-rails"
 gem "font-awesome-rails"
+gem "font-awesome-sass", "~> 5.11.2"
+gem "popper_js", "~> 1.14.5"
 gem "puma", "~> 3.7"
 gem "devise"
 gem "sass-rails", "~> 5.0"
