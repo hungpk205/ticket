@@ -1,5 +1,7 @@
 {
   "name": "booking_ticket",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "gentelella": "^1.4.0"
+  }
 }
