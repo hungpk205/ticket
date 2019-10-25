@@ -1,0 +1,23 @@
+vn:
+  companies:
+    new:
+      create: "Tạo công ty"
+      company: "Công ty"
+    form:
+      cancel: "Hủy"
+      create: "Tạo công ty"
+      company: "Công ty"
+      reset: "Nhập lại"
+      submit: "Xác nhận"
+
+  helpers:
+    base_title: "Vé xe"
+  layouts:
+    sidebar:
+      create_company: "Tạo công ty"
+      admin: "Quản trị viên"
+      welcome: "Chào mừng"
+      logout: "Đăng xuất"
+  errorpage:
+    not_found:
+      title: "Không tìm thấy trang"

@@ -10,5 +10,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
+Rails.application.config.assets.precompile += %w(ckeditor/filebrowser/images/gal_del.png)
+Rails.application.config.assets.precompile += %w( ckeditor/* )
+Rails.application.config.assets.precompile += %w( show_image.js )
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )

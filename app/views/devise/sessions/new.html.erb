@@ -1,3 +1,4 @@
+<% provide(:title, t(".title")) %>
 <div>
   <div class="login_wrapper">
     <div class="animate form login_form">
@@ -5,7 +6,7 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <h1>Login Form</h1>
           <div class="field">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Username" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
           </div>
           <div class="field">
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "password" %>

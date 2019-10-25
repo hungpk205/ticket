@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_082253) do
+ActiveRecord::Schema.define(version: 2019_10_31_142540) do
 
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "fullname"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2019_10_22_082253) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_buses_on_company_id"
+  end
+
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,6 +85,7 @@ ActiveRecord::Schema.define(version: 2019_10_22_082253) do
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["company_id"], name: "index_routes_on_company_id"
   end
 
@@ -97,6 +108,7 @@ ActiveRecord::Schema.define(version: 2019_10_22_082253) do
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["bus_id"], name: "index_trips_on_bus_id"
     t.index ["company_id"], name: "index_trips_on_company_id"
     t.index ["route_id"], name: "index_trips_on_route_id"
@@ -106,7 +118,7 @@ ActiveRecord::Schema.define(version: 2019_10_22_082253) do
     t.string "fullname"
     t.string "address"
     t.string "phone"
-    t.integer "role"
+    t.integer "role", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

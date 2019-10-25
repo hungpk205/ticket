@@ -1,0 +1,39 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        fullname: "Full name"
+        email: "Email address"
+        address: "Address"
+        phone: "Phone number"
+        role: "Role"
+        password: "Password"
+        confirmation_password: "Confirmation password"
+        current_password: "Current password"
+      company:
+        name: "Company name"
+        address: "Address"
+        phone: "Phone number"
+        logo: "Logo"
+        banner: "Banner"
+        company_info: "Information"
+      employee:
+        name: "Full name"
+        address: "Address"
+        role: "Position"
+        avatar: "Avatar"
+    enums:
+      employee:
+        roles:
+          major: "Major driver"
+          minor: "Minor driver"
+    errors:
+      models:
+        company:
+          attributes:
+            name:
+              blank: "can not be empty"
+            logo:
+              blank: "can not be empty"
+            banner:
+              blank: "can not be empty"

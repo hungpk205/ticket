@@ -1,0 +1,38 @@
+vn:
+  activerecord:
+    attributes:
+      user:
+        address: "Địa chỉ"
+        fullname: "Họ và tên"
+        email: "Địa chỉ email"
+        phone: "Số điện thoại"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
+        current_password: "Mật khẩu hiện tại"
+      company:
+        name: "Tên công ty"
+        address: "Địa chỉ"
+        phone: "Số điện thoại"
+        logo: "Biểu tượng"
+        banner: "Ảnh nền"
+        company_info: "Thông tin chi tiết"
+      employee:
+        name: "Họ và tên"
+        address: "Địa chỉ"
+        role: "Vị trí"
+        avatar: "Ảnh đại diện"
+    enums:
+      employee:
+        roles:
+          major: "Tài xế chính"
+          minor: "Tài xế phụ"
+    errors:
+      models:
+        company:
+          attributes:
+            name:
+              blank: "không thể để trống"
+            logo:
+              blank: "không thể để trống"
+            banner:
+              blank: "không thể để trống"

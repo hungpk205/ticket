@@ -1,0 +1,21 @@
+<%= simple_form_for @employee do |f| %>
+    <%= f.input :name, class: "col-md-6 col-sm-6 form-control" %>
+    <%= f.input :address, class: "col-md-6 col-sm-6 form-control" %>
+    <%= f.input :role, as: :select, include_blank: false, collection: enum_options_for_select(Employee, :role), class: "col-md-6 col-sm-6 form-control" %>
+    <%= f.input :avatar, class: "col-md-6 col-sm-6 form-control" %>
+    <% if @employee.avatar? %>
+      <%= image_tag @employee.avatar.url, id: "img_avatar", width: "200", height: "auto" %>
+    <% else %>
+      <%= image_tag "/assets/default-image.jpg", id: "img_avatar", width: "200", height: "auto" %>
+    <% end %>
+
+  <div class="ln_solid"></div>
+  <div class="item form-group">
+    <div class="col-md-6 col-sm-6 offset-md-3">
+      <button class="btn btn-primary" type="button"><%= t(".cancel") %></button>
+      <button class="btn btn-primary" type="reset"><%= t(".reset") %></button>
+      <button type="submit" class="btn btn-success"><%= t(".submit") %></button>
+    </div>
+  </div>
+<% end %>
+<%= javascript_include_tag "show_image.js" %>
