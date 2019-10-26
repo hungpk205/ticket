@@ -517,7 +517,6 @@ body .container.body .right_col {
     right: 135px;
     top: 6px;
   }
-  
   .nav-md .container.body .right_col, .nav-md .container.body .top_nav {
     width: 100%;
     margin: 0;
@@ -535,7 +534,6 @@ body .container.body .right_col {
   .item{
     display:block;
   }
-  
 }
 @media (max-width: 1200px) {
   .x_title h2 {
@@ -3971,8 +3969,7 @@ a.hiddenanchor {
   padding: 15px 0;
 }
 .login_content form input[type="submit"], #content form .submit {
-  float: left;
-  margin-left: 38px;
+  float: inherit;
 }
 .button a {
   background: url(http://cssdeck.com/uploads/media/items/8/8bcLQqF.png) 0 -112px no-repeat;
@@ -4680,7 +4677,7 @@ ul.notifications {
     padding: 5px 10px;
     font-size: 12px;
     line-height: 1.5;
-} 
+}
 .input-group-addon {
   padding: 6px 12px;
   font-size: 14px;
