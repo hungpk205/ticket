@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "homepages#home"
+  mount Ckeditor::Engine => '/ckeditor'
+  scope "(:locale)", locale: /en|vn/ do
+    devise_for :users
+    root "homepages#home"
+    resources :companies
+    resources :employees
+  end
+  match '*path' => "errorpage#not_found", via: :get
 end

@@ -2,6 +2,6 @@
   "name": "booking_ticket",
   "private": true,
   "dependencies": {
-    "gentelella": "^1.4.0"
+    "toastr": "^2.1.4"
   }
 }
