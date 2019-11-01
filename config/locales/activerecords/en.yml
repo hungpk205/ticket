@@ -22,6 +22,9 @@ en:
         address: "Address"
         role: "Position"
         avatar: "Avatar"
+        roles:
+          major: "Major driver"
+          minor: "Minor driver"
     enums:
       employee:
         roles:

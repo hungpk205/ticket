@@ -21,6 +21,9 @@ vn:
         address: "Địa chỉ"
         role: "Vị trí"
         avatar: "Ảnh đại diện"
+        roles:
+          major: "Tài xế chính"
+          minor: "Tài xế phụ"
     enums:
       employee:
         roles:

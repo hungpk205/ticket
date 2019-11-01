@@ -1,4 +1,4 @@
-<%= simple_form_for @employee do |f| %>
+<%= simple_form_for ([@company,@employee]) do |f| %>
     <%= f.input :name, class: "col-md-6 col-sm-6 form-control" %>
     <%= f.input :address, class: "col-md-6 col-sm-6 form-control" %>
     <%= f.input :role, as: :select, include_blank: false, collection: enum_options_for_select(Employee, :role), class: "col-md-6 col-sm-6 form-control" %>
