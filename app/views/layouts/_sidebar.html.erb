@@ -39,21 +39,23 @@
         <li>
           <a href = "/"><i class="fa fa-home"></i> Trang chủ </a>
         </li>
-        <li>
-          <a href = "/employees"><i class="fa fa-users"></i> Nhân viên </a>
-        </li>
-        <li>
-          <a href = "/buses"><i class="fa fa-bus"></i> Xe </a>
-        </li>
-        <li>
-          <a href = "/routes"><i class="fa fa-random"></i> Lộ trình </a>
-        </li>
-        <li>
-          <a href = "/routes"><i class="fa fa-road"></i> Chuyến đi </a>
-        </li>
-        <li>
-          <a href = "/bookings"><i class="fa fa-ticket"></i> Xe </a>
-        </li>
+        <% if current_user.company.present? %>
+          <li>
+            <a href = "/companies/<%= current_user.company.id %>/employees"><i class="fa fa-users"></i> Nhân viên </a>
+          </li>
+          <li>
+            <a href = "/buses"><i class="fa fa-bus"></i> Xe </a>
+          </li>
+          <li>
+            <a href = "/routes"><i class="fa fa-random"></i> Lộ trình </a>
+          </li>
+          <li>
+            <a href = "/routes"><i class="fa fa-road"></i> Chuyến đi </a>
+          </li>
+          <li>
+            <a href = "/bookings"><i class="fa fa-ticket"></i> Xe </a>
+          </li>
+        <% end %>
       </ul>
     </div>
 

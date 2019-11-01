@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vn/ do
     devise_for :users
     root "homepages#home"
-    resources :companies
-    resources :employees
+    resources :companies do
+      resources :employees
+    end
   end
   match '*path' => "errorpage#not_found", via: :get
 end
