@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     root "homepages#home"
     resources :companies do
       resources :employees
+      resources :buses
+      resources :routes
+      resources :trips
     end
   end
   match '*path' => "errorpage#not_found", via: :get

@@ -14,6 +14,7 @@
 //= require popper
 //= require jquery
 //= require bootstrap.min
+//= require bootstrap-datepicker
 //= require activestorage
 //= require turbolinks
 //= require custom.js

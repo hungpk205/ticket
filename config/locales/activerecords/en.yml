@@ -25,6 +25,24 @@ en:
         roles:
           major: "Major driver"
           minor: "Minor driver"
+      bus:
+        license_plate: "License plate"
+        slot: "Slot"
+        status: "Status"
+        statuses:
+          ready: "Ready"
+          busy: "Busy"
+      trip:
+        name: "Name"
+        start_time: "Start time"
+        driver_major_id: "Major driver"
+        driver_minor_id: "Minor driver"
+        price: "Price"
+        status: "Status"
+        statuses:
+          openning: "Openning"
+          full: "Full"
+          closed: "Closed"
     enums:
       employee:
         roles:

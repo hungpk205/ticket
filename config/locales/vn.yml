@@ -21,3 +21,9 @@ vn:
   errorpage:
     not_found:
       title: "Không tìm thấy trang"
+
+  date:
+    order:
+      - :day
+      - :month
+      - :year
