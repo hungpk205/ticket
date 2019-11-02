@@ -1,0 +1,14 @@
+<%= simple_form_for [@company,@trip], html: {class: "col-md-6 offset-md-3"} do |f| %>
+  <%= f.input :name, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :start_place, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :end_place, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :detail, class: "col-md-6 col-sm-6 form-control" %>
+  <div class="ln_solid"></div>
+  <div class="item form-group">
+    <div class="col-md-6 col-sm-6 offset-md-3">
+      <button class="btn btn-primary" type="button"><%= t(".cancel") %></button>
+      <button class="btn btn-primary" type="reset"><%= t(".reset") %></button>
+      <button type="submit" class="btn btn-success"><%= t(".submit") %></button>
+    </div>
+  </div>
+<% end %>

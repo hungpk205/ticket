@@ -1,0 +1,9 @@
+<tr class="even pointer">
+  <td class=" "><%= bus.license_plate %></td>
+  <td class=" "><%= bus.slot %> </td>
+  <td class=" "><%= Bus.human_enum_name(:status, bus.status) %></td>
+  <td class=" last">
+    <%= link_to t(".detail"), company_bus_path(current_user.company,bus), class: "btn btn-primary btn-xs"  %>
+    <%= link_to t(".edit"), edit_company_bus_path(current_user.company,bus), class: "btn btn-info btn-xs"  %>
+  </td>
+</tr>

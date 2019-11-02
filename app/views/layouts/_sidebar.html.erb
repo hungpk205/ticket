@@ -44,16 +44,16 @@
             <a href = "/companies/<%= current_user.company.id %>/employees"><i class="fa fa-users"></i> Nhân viên </a>
           </li>
           <li>
-            <a href = "/buses"><i class="fa fa-bus"></i> Xe </a>
+            <a href = "/companies/<%= current_user.company.id %>/buses"><i class="fa fa-bus"></i> Xe </a>
           </li>
           <li>
-            <a href = "/routes"><i class="fa fa-random"></i> Lộ trình </a>
+            <a href = "/companies/<%= current_user.company.id %>/routes"><i class="fa fa-random"></i> Lộ trình </a>
           </li>
           <li>
-            <a href = "/routes"><i class="fa fa-road"></i> Chuyến đi </a>
+            <a href = "/companies/<%= current_user.company.id %>/trips"><i class="fa fa-road"></i> Chuyến đi </a>
           </li>
           <li>
-            <a href = "/bookings"><i class="fa fa-ticket"></i> Xe </a>
+            <a href = "/companies/<%= current_user.company.id %>/bookings"><i class="fa fa-ticket"></i> Xe </a>
           </li>
         <% end %>
       </ul>

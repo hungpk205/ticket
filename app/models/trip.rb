@@ -6,4 +6,6 @@ class Trip < ApplicationRecord
   has_many :tickets
   has_many :evaluations
   has_many :bookings
+
+  enum status: %i(openning full closed)
 end
