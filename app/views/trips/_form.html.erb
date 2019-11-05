@@ -1,6 +1,6 @@
 <%= simple_form_for [@company,@trip], html: {class: "col-md-6 offset-md-3"} do |f| %>
   <%= f.input :name, class: "col-md-6 col-sm-6 form-control" %>
-  <%= f.input :start_time, as: :datetime, class: "trip_start_time col-md-6 col-sm-6 form-control", html5: true %>
+  <%= f.input :start_time, as: :datetime, class: "col-md-6 col-sm-6 form-control", html5: true %>
   <%= f.input :driver_major_id, as: :select, include_blank: false, collection: @driver_major, class: "col-md-6 col-sm-6 form-control" %>
   <%= f.input :driver_minor_id, as: :select, include_blank: false, collection: @driver_minor, class: "col-md-6 col-sm-6 form-control" %>
   <%= f.input :price, class: "col-md-6 col-sm-6 form-control" %>
@@ -16,4 +16,3 @@
     </div>
   </div>
 <% end %>
-<%= javascript_include_tag "date_time_picker" %>

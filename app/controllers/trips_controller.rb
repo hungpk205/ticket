@@ -17,14 +17,22 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = @company.trips.build trip_params
-    if @trip.save
+    Trip.transaction do
+      @trip = @company.trips.build trip_params
+      @trip.save!
+      # Create tickets
+      numberTickets = @trip.bus.slot
+      (1..numberTickets).each do |i|
+        @ticket = Ticket.new
+        @ticket.code = "T#{@trip.id}-S#{i}"
+        @trip.tickets << @ticket
+      end
       flash[:success] = t ".success"
       redirect_to company_trips_path
-    else
-      flash[:error] = t ".error"
-      render :new
     end
+  rescue ActiveRecord::RecordInvalid
+    flash[:error] = t ".error"
+    render :new
   end
 
   def edit

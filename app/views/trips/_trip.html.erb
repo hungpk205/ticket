@@ -1,9 +1,14 @@
 <tr class="even pointer">
   <td class=" "><%= trip.name %></td>
-  <td class=" "><%= trip.slot %> </td>
+  <td class=" "><%= trip.start_time %> </td>
+  <td class=" "><%= trip.bus.license_plate %> </td>
+  <td class=" "><%= trip.driver_major.name %> </td>
+  <td class=" "><%= trip.driver_minor.name %> </td>
+  <td class=" "><%= trip.tickets.booked.size %>/<%= trip.tickets.size %> </td>
+  <td class=" "><%= trip.price %> </td>
   <td class=" "><%= Trip.human_enum_name(:status, trip.status) %></td>
   <td class=" last">
-    <%= link_to t(".detail"), company_bus_path(current_user.company,trip)  %>
-    <%= link_to t(".edit"), edit_company_bus_path(current_user.company,trip)  %>
+    <%= link_to t(".detail"), company_trip_path(current_user.company,trip)  %>
+    <%= link_to t(".edit"), edit_company_trip_path(current_user.company,trip)  %>
   </td>
 </tr>
