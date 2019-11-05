@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_02_134831) do
+ActiveRecord::Schema.define(version: 2019_11_05_144424) do
 
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "fullname"
     t.string "phone"
     t.string "identity_card"
-    t.integer "status"
+    t.integer "status", default: 0
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,19 +80,19 @@ ActiveRecord::Schema.define(version: 2019_11_02_134831) do
   end
 
   create_table "routes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.string "start_place"
     t.string "end_place"
     t.text "detail"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.index ["company_id"], name: "index_routes_on_company_id"
   end
 
   create_table "tickets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "code"
-    t.integer "status"
+    t.integer "status", default: 0
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -100,17 +100,17 @@ ActiveRecord::Schema.define(version: 2019_11_02_134831) do
   end
 
   create_table "trips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.datetime "start_time"
     t.integer "driver_major_id"
     t.integer "driver_minor_id"
     t.decimal "price", precision: 10
+    t.integer "status", default: 0
     t.bigint "route_id"
     t.bigint "bus_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.integer "status", default: 0
     t.index ["bus_id"], name: "index_trips_on_bus_id"
     t.index ["company_id"], name: "index_trips_on_company_id"
     t.index ["route_id"], name: "index_trips_on_route_id"
