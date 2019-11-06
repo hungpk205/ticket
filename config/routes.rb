@@ -7,8 +7,13 @@ Rails.application.routes.draw do
       resources :employees
       resources :buses
       resources :routes
-      resources :trips
+      resources :trips do
+        resources :bookings
+      end
+
     end
+    # Routes for APIs
+    # resources :bookings, expect: %i(edit update destroy)
   end
   match '*path' => "errorpage#not_found", via: :get
 end

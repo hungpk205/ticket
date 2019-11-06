@@ -10,6 +10,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = @company.trips.find_by id: params[:id]
+    @bookings = @trip.bookings
   end
 
   def new
