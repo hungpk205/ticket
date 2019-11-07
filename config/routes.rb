@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   end
   namespace :api do
     get "/bookings", to: "bookings#index"
+    get "/bookings/details", to: "bookings#show"
+    post "/bookings", to: "booking#create"
+    delete "/bookings/:id", to: "bookings#destroy"
+    get "/trips", to: "trips#index"
+    get "/routes", to: "routes#index"
+    get "/routes/:id", to: "routes#show"
   end
   match '*path' => "errorpage#not_found", via: :get
 end
