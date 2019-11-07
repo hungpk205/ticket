@@ -11,4 +11,7 @@ class Trip < ApplicationRecord
   has_many :bookings
 
   enum status: %i(openning full closed)
+
+  scope :search_trip, ->(start_place, end_place){join(:route).where("route.start_place LIKE ? AND route.end_place LIKE ?", "%#{start_place}%",
+    "%#{end_place}%")}
 end

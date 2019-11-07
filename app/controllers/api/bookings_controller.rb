@@ -38,9 +38,23 @@ class Api::BookingsController < ApplicationController
     render json: msg
   end
 
-  def edit; end
-
-  def update; end
+  def destroy
+    Booking.transaction do
+      @booking = Booking.find_by(id: params[:id], fullname: params[:fullname], identity_card: params[:identity_card], phone: params[:phone])
+      @tickets = @booking.tickets
+      @tickets.each do |ticket|
+        ticket.empty!
+        ticket.booking_id = nil
+        ticket.save!
+      end
+      @booking.destroy!
+      msg = { status: :ok, message: "Success!" }
+      render json: msg
+    end
+  rescue ActiveRecord::RecordInvalid
+    msg = { status: :bad_request, message: "Error!" }
+    render json: msg
+  end
 
   private
 

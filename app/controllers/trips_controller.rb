@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   load_and_authorize_resource
 
   before_action :load_company
-  before_action :load_data, only: %i(new edit)
+  before_action :load_data, only: %i(new create edit)
 
   def index
     @trips = @company.trips.page(params[:page]).per(10)
@@ -22,11 +22,13 @@ class TripsController < ApplicationController
       @trip = @company.trips.build trip_params
       @trip.save!
       # Create tickets
-      numberTickets = @trip.bus.slot
-      (1..numberTickets).each do |i|
-        @ticket = Ticket.new
+      (1..@trip.bus.slot).each do |i|
+        @ticket = @trip.tickets.build
         @ticket.code = "T#{@trip.id}-S#{i}"
-        @trip.tickets << @ticket
+        # @ticket.code = "T#{@trip.id}-S#{i}"
+        # @ticket.trip_id = @trip.id
+        @ticket.booking_id = ""
+        @ticket.save!
       end
       flash[:success] = t ".success"
       redirect_to company_trips_path
