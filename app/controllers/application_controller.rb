@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
     @company = current_user.company
   end
 
+  def load_notifications
+    @notifications = Notification.where(company_id: current_user.company.id)
+  end
+
   private
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
