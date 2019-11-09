@@ -128,19 +128,19 @@ $(document).ready(function () {
 // /Panel toolbox
 
 // Tooltip
-$(document).ready(function () {
-    $('[data-toggle="tooltip"]').tooltip({
-        container: 'body'
-    });
-});
+// $(document).ready(function () {
+//     $('[data-toggle="tooltip"]').tooltip({
+//         container: 'body'
+//     });
+// });
 // /Tooltip
 
 // Progressbar
-$(document).ready(function () {
-    if ($(".progress .progress-bar")[0]) {
-        $('.progress .progress-bar').progressbar();
-    }
-});
+// $(document).ready(function () {
+//     if ($(".progress .progress-bar")[0]) {
+//         $('.progress .progress-bar').progressbar();
+//     }
+// });
 // /Progressbar
 
 // Switchery
@@ -157,16 +157,16 @@ $(document).ready(function () {
 // /Switchery
 
 // iCheck
-$(document).ready(function () {
-    if ($("input.flat")[0]) {
-        $(document).ready(function () {
-            $('input.flat').iCheck({
-                checkboxClass: 'icheckbox_flat-green',
-                radioClass: 'iradio_flat-green'
-            });
-        });
-    }
-});
+// $(document).ready(function () {
+//     if ($("input.flat")[0]) {
+//         $(document).ready(function () {
+//             $('input.flat').iCheck({
+//                 checkboxClass: 'icheckbox_flat-green',
+//                 radioClass: 'iradio_flat-green'
+//             });
+//         });
+//     }
+// });
 // /iCheck
 
 // Table

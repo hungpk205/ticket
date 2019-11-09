@@ -30,6 +30,14 @@ class Api::BookingsController < ApplicationController
         ticket.booking_id = @booking.id
         ticket.save!
       end
+
+      #create notification
+      @trip = Trip.find_by id: params[:trip_id]
+      @company = @trip.company
+      content = "#{params[:fullname]} has been booking trip #{@trip.name} at #{Time.zone.now}"
+      url_id = @trip.id
+      @notification = @company.notifications.build(content: content, url_id: url_id, status: 0)
+      @notification.save!
       msg = { status: :ok, message: "Success!" }
       render json: msg
     end

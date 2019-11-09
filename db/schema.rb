@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_033224) do
+ActiveRecord::Schema.define(version: 2019_11_09_033415) do
 
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "fullname"
@@ -79,6 +79,16 @@ ActiveRecord::Schema.define(version: 2019_11_06_033224) do
     t.index ["trip_id"], name: "index_evaluations_on_trip_id"
   end
 
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.integer "status"
+    t.integer "url_id"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_notifications_on_company_id"
+  end
+
   create_table "routes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "start_place"
@@ -143,6 +153,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_033224) do
   add_foreign_key "companies", "users"
   add_foreign_key "employees", "companies"
   add_foreign_key "evaluations", "trips"
+  add_foreign_key "notifications", "companies"
   add_foreign_key "routes", "companies"
   add_foreign_key "tickets", "bookings"
   add_foreign_key "tickets", "trips"

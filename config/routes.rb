@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+  mount ActionCable.server => "/cable"
   scope "(:locale)", locale: /en|vn/ do
     devise_for :users
     root "homepages#home"
@@ -9,14 +10,11 @@ Rails.application.routes.draw do
       resources :routes
       resources :trips
     end
-    # Routes for APIs
-    # resources :bookings, expect: %i(edit update destroy)
-
   end
   namespace :api do
     get "/bookings", to: "bookings#index"
+    post "/bookings", to: "bookings#create"
     get "/bookings/details", to: "bookings#show"
-    post "/bookings", to: "booking#create"
     delete "/bookings/:id", to: "bookings#destroy"
     get "/trips", to: "trips#index"
     get "/trips/:id", to: "trips#show"

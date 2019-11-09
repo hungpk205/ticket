@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require cable
 //= require popper
 //= require jquery
 //= require bootstrap.min

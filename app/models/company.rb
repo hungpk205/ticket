@@ -5,6 +5,7 @@ class Company < ApplicationRecord
   has_many :buses
   has_many :routes
   has_many :trips
+  has_many :notifications
 
   validates :name, presence: true
   validates :logo, presence: true
