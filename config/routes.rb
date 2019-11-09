@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     post "/bookings", to: "booking#create"
     delete "/bookings/:id", to: "bookings#destroy"
     get "/trips", to: "trips#index"
+    get "/trips/:id", to: "trips#show"
     get "/routes", to: "routes#index"
     get "/routes/:id", to: "routes#show"
   end

@@ -12,6 +12,7 @@ class Trip < ApplicationRecord
 
   enum status: %i(openning full closed)
 
-  scope :search_trip, ->(start_place, end_place){join(:route).where("route.start_place LIKE ? AND route.end_place LIKE ?", "%#{start_place}%",
-    "%#{end_place}%")}
+  scope :search_trip, ->(start_place, end_place, start_time){joins("INNER JOIN routes ON trips.route_id = routes.id").where("routes.start_place LIKE ? AND routes.end_place LIKE ? AND ? < trips.start_time", "%#{start_place}%","%#{end_place}%", start_time)}
+  scope :active, ->{where("status=0 || status=1")}
+
 end
