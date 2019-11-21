@@ -1,6 +1,7 @@
 class RoutesController < ApplicationController
   load_and_authorize_resource
   before_action :load_company
+  before_action :load_notifications
 
   def index
     @routes = current_user.company.routes.page(params[:page]).per(10)

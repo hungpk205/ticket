@@ -5,5 +5,6 @@ class Employee < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  validates :name, presence: true
   enum role: %i(major minor)
 end

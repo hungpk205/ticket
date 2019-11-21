@@ -1,6 +1,7 @@
 class BusesController < ApplicationController
   load_and_authorize_resource
   before_action :load_company
+  before_action :load_notifications
 
   def index
     @buses = current_user.company.buses.page(params[:page]).per(10)

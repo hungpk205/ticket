@@ -1,4 +1,5 @@
-require "api/route_json"
+require "api/trip_json"
+require "api/ticket_json"
 class Api::TripsController < ApplicationController
   protect_from_forgery with: :null_session
   def index
@@ -8,7 +9,12 @@ class Api::TripsController < ApplicationController
       if @trips.size > 0
         @result = Array.new
         @trips.each do |trip|
-          @route_json = RouteJson.new(trip.id, trip.name, trip.start_time, trip.driver_major.name, trip.driver_minor.name, trip.price, trip.status, trip.route.name, trip.bus.license_plate)
+          @tickets = Array.new
+          trip.tickets.each do |ticket|
+            @ticket_json = TicketJson.new(ticket.id, ticket.code, ticket.status);
+            @tickets << @ticket_json
+          end
+          @route_json = TripJson.new(trip.id, trip.name, trip.start_time, trip.driver_major.name, trip.driver_minor.name, trip.price, trip.status, trip.route.name, trip.bus.license_plate, @tickets)
           @result << @route_json
         end
         render json: @result
@@ -20,9 +26,16 @@ class Api::TripsController < ApplicationController
       @trips = Trip.active
       @result = Array.new
       @trips.each do |trip|
-        @route_json = RouteJson.new(trip.id, trip.name, trip.start_time, trip.driver_major.name, trip.driver_minor.name, trip.price, trip.status, trip.route.name, trip.bus.license_plate)
+        @tickets = Array.new
+        trip.tickets.each do |ticket|
+          @ticket_json = TicketJson.new(ticket.id, ticket.code, ticket.status);
+          @tickets << @ticket_json
+        end
+        @route_json = TripJson.new(trip.id, trip.name, trip.start_time, trip.route.start_place, trip.route.end_place, trip.driver_major.name, trip.driver_minor.name, trip.price, trip.status, trip.bus.license_plate, @tickets)
+
         @result << @route_json
       end
+      result = {trips: @result}
       render json: @result
     end
   end
@@ -30,8 +43,14 @@ class Api::TripsController < ApplicationController
   def show
     @trip = Trip.active.find_by id: params[:id]
     if @trip.present?
-      @result = RouteJson.new(@trip.id, @trip.name, @trip.start_time, @trip.driver_major.name, @trip.driver_minor.name, @trip.price, @trip.status, @trip.route.name, @trip.bus.license_plate)
-      render json: @result
+      @tickets = @trip.tickets
+      @seats = Array.new
+      @trip.tickets.each do |ticket|
+        @ticket_json = TicketJson.new(ticket.id, ticket.code, ticket.status)
+        @seats << @ticket_json
+      end
+      @trip_json = TripJson.new(@trip.id, @trip.name, @trip.start_time, @trip.route.start_place, @trip.route.end_place, @trip.driver_major.name, @trip.driver_minor.name, @trip.price, @trip.status, @trip.bus.license_plate, @seats)
+      render json: @trip_json
     else
       msg = {status: 400, message: "Not found trip"}
       render json: msg

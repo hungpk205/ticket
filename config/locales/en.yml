@@ -1,4 +1,12 @@
 en:
+  api:
+    bookings:
+      create:
+        has_booked: " just booking trip name "
+        at: " at "
+  check:
+    no_permission: "You don't have permission"
+    require_login: "You must login for do this"
   companies:
     new:
       create: "Create company"
@@ -16,6 +24,8 @@ en:
       create_company: "Create company"
       welcome: "Welcome"
       logout: "Logout"
+    footer:
+      footer: "Management system booking ticket bus - Developed by Hung PK - 15T1"
   errorpage:
     not_found:
       title: "Not found page"
