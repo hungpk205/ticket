@@ -9,7 +9,7 @@ class Ability
       permission_admin user
     elsif user.editor?
       if user.company.present?
-        can :manager, Company, company_id: user.company.id
+        can :manage, user.company
         can :manage, Employee, company_id: user.company.id
         can :manage, Route, company_id: user.company.id
         can :manage, Bus, company_id: user.company.id

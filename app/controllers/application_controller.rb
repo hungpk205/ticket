@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do
     if user_signed_in?
-      flash[:danger] = t "check.no_permission"
+      flash[:error] = t "check.no_permission"
       redirect_to root_path
     else
-      flash[:danger] = t "check.require_login"
+      flash[:error] = t "check.require_login"
       redirect_to new_user_session_url
     end
   end
@@ -26,7 +26,9 @@ class ApplicationController < ActionController::Base
   end
 
   def load_notifications
-    @notifications = Notification.where(company_id: current_user.company.id)
+    if current_user.company.present?
+      @notifications = current_user.company.notifications.newest.limit(5)
+    end
   end
 
   private

@@ -2,6 +2,7 @@ class TripsController < ApplicationController
   load_and_authorize_resource
 
   before_action :load_company
+  before_action :load_notifications
   before_action :load_data, only: %i(new create edit)
 
   def index

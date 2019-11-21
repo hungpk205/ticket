@@ -16,7 +16,6 @@
 //= require jquery
 //= require bootstrap.min
 //= require activestorage
-//= require turbolinks
 //= require custom.js
 //= require config_ckeditor
 //= require ckeditor/config

@@ -2,7 +2,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>User Profile</h3>
+        <h3><%= t(".infor_trip") %></h3>
       </div>
 
       <div class="title_right">
@@ -22,21 +22,12 @@
     <div class="row">
       <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
-          <div class="x_title">
-            <h2>User Report <small>Activity report</small></h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li>
-                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
-          </div>
           <div class="x_content">
             <div class="col-md-3 col-sm-3  profile_left">
               <h3><%= @trip.name %></h3>
               <ul class="list-unstyled user_data">
                 <li>
-                  <i class="fa fa-map-marker user-profile-icon"></i> <%=  t(".start_time") %>: <%= @trip.start_time %>
+                  <i class="fa fa-map-marker user-profile-icon"></i> <%=  t(".start_time") %>: <%= l @trip.start_time, format: :full %>
                 </li>
                 <li>
                   <i class="fa fa-briefcase user-profile-icon"></i> <%=  t(".start_lace") %>: <%= @trip.route.start_place %>
@@ -53,10 +44,10 @@
                   <h2><%= t(".detail") %></h2>
                 </div>
                 <div class="col-md-6">
-                  <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
+                  <%# <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
                     <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
                     <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                  </div>
+                  </div> %>
                 </div>
               </div>
               <!-- start of user-activity-graph -->

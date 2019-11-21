@@ -1,1 +1,4 @@
 check_booking: 2
+format_datetime:
+  long: "%d-%m-%Y"
+  full: "%d - %B - %Y"

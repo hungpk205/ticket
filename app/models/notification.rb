@@ -2,6 +2,11 @@ class Notification < ApplicationRecord
   after_create_commit :push_notify
   belongs_to :company
 
+  scope :newest, ->{order(created_at: :desc)}
+  scope :unread, ->{where(status: :unread)}
+
+  enum status: %i(unread readed)
+
   private
 
   def push_notify

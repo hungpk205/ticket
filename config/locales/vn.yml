@@ -1,4 +1,12 @@
 vn:
+  api:
+    bookings:
+      create:
+        has_booked: " vừa đặt vé chuyến đi "
+        at: " lúc "
+  check:
+    no_permission: "Bạn không có quyền này"
+    require_login: "Bạn phải đăng nhập để thực hiện"
   companies:
     new:
       create: "Tạo công ty"
@@ -9,7 +17,6 @@ vn:
       company: "Công ty"
       reset: "Nhập lại"
       submit: "Xác nhận"
-
   helpers:
     base_title: "Vé xe"
   layouts:
@@ -18,10 +25,11 @@ vn:
       admin: "Quản trị viên"
       welcome: "Chào mừng"
       logout: "Đăng xuất"
+    footer:
+      footer: "Hệ thống quản lý đặt vé xe khách - Phát triển bởi Phan Kiều Hưng - 15T1"
   errorpage:
     not_found:
       title: "Không tìm thấy trang"
-
   date:
     order:
       - :day

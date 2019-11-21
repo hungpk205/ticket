@@ -10,6 +10,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   def default_url(*args)
     "/images/fallback/" + [version_name, "default-image.jpg"].compact.join('_')
   end
+
   def extension_whitelist
     %w(jpg jpeg gif png)
   end

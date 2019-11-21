@@ -2,6 +2,7 @@ class EmployeesController < ApplicationController
   load_and_authorize_resource
   # before_action :authenticate_user!
   before_action :load_company
+  before_action :load_notifications
 
   def index
     @employees = current_user.company.employees.page(params[:page]).per(10)
