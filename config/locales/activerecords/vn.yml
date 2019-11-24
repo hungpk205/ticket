@@ -42,6 +42,7 @@ vn:
           openning: "Đang mở"
           full: "Hết chỗ"
           closed: "Đã đóng"
+          finished: "Đã kết thúc"
     enums:
       employee:
         roles:

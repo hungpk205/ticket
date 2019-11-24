@@ -1,17 +1,7 @@
 <div class="right_col" role="main">
   <div class="page-title">
     <div class="title_left">
-      <h3>User Profile</h3>
-    </div>
-    <div class="title_right">
-      <div class="col-md-5 col-sm-5  form-group pull-right top_search">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button">Go!</button>
-          </span>
-        </div>
-      </div>
+      <h3><%= t(".bus") %></h3>
     </div>
   </div>
 
@@ -20,31 +10,14 @@
   <div class="row">
     <div class="col-md-12 col-sm-12 ">
       <div class="x_panel">
-        <div class="x_title">
-          <h2>User Report <small>Activity report</small></h2>
-          <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Settings 1</a>
-                  <a class="dropdown-item" href="#">Settings 2</a>
-                </div>
-            </li>
-            <li><a class="close-link"><i class="fa fa-close"></i></a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
         <div class="x_content">
           <div class="col-md-3 col-sm-3  profile_left">
             <ul class="list-unstyled user_data">
               <li>
-                <i class="fa fa-map-marker user-profile-icon"></i> <%= @bus.license_plate %>
+                <i class="fa fa-bus"></i> <%= t(".license_plate") %>: <%= @bus.license_plate %>
               </li>
               <li>
-                <i class="fa fa-briefcase user-profile-icon"></i> <%= @bus.slot %>
+                <i class="fa fa-wheelchair"></i> <%= t(".seats") %>: <%= @bus.slot %>
               </li>
             </ul>
             <br />
@@ -52,28 +25,31 @@
           <div class="col-md-9 col-sm-9 ">
             <div class="" role="tabpanel" data-example-id="togglable-tabs">
               <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
+                <li role="presentation" class="active"><a href="" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true"><%= t(".list_trips") %></a>
                 </li>
               </ul>
               <div id="myTabContent" class="tab-content">
                 <div role="tabpanel" class="tab-pane active " id="tab_content1" aria-labelledby="home-tab">
                   <!-- start recent activity -->
                   <ul class="messages">
-                    <li>
-                      <div class="message_date">
-                        <h3 class="date text-info">24</h3>
-                        <p class="month">May</p>
-                      </div>
-                      <div class="message_wrapper">
-                        <h4 class="heading">Desmond Davison</h4>
-                        <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                        <br />
-                        <p class="url">
-                          <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                          <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                        </p>
-                      </div>
-                    </li>
+                    <% if @bus.trips.size > 0 %>
+                      <% @bus.trips.each do |trip| %>
+                        <li>
+                          <div class="message_date">
+                            <h3 class="date text-info"><%= trip.start_time.day %></h3>
+                            <p class="month"><%= l trip.start_time, format: "%B" %></p>
+                          </div>
+                          <div class="message_wrapper">
+                            <h4 class="heading"><%= trip.route.start_place %> <%= t(".to") %> <%= trip.route.end_place %></h4>
+                            <blockquote class="message"><%= t(".driver_major") %>: <%= trip.driver_major.name %></blockquote>
+                            <blockquote class="message"><%= t(".driver_minor") %>: <%= trip.driver_minor.name %></blockquote>
+                            <br />
+                          </div>
+                        </li>
+                      <% end %>
+                    <% else %>
+                      <p style="text-align:center"><%= t(".no_data") %></p>
+                    <% end %>
                   </ul>
                   <!-- end recent activity -->
                 </div>

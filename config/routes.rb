@@ -8,7 +8,9 @@ Rails.application.routes.draw do
       resources :employees
       resources :buses
       resources :routes
-      resources :trips
+      resources :trips do
+        resources :bookings, only: %i(show update)
+      end
       resources :notifications
     end
   end

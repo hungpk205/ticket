@@ -1,14 +1,17 @@
 <tr class="even pointer">
-  <td class=" "><%= trip.name %></td>
-  <td class=" "><%= trip.start_time %> </td>
-  <td class=" "><%= trip.bus.license_plate %> </td>
-  <td class=" "><%= trip.driver_major.name %> </td>
-  <td class=" "><%= trip.driver_minor.name %> </td>
-  <td class=" "><%= trip.tickets.booked.size %>/<%= trip.tickets.size %> </td>
-  <td class=" "><%= trip.price %> </td>
-  <td class=" "><%= Trip.human_enum_name(:status, trip.status) %></td>
-  <td class=" last">
-    <%= link_to t(".detail"), company_trip_path(current_user.company,trip)  %>
-    <%= link_to t(".edit"), edit_company_trip_path(current_user.company,trip)  %>
+  <td class=" " style="text-align:center"><%= trip.route.start_place %></td>
+  <td class=" " style="text-align:center"><%= trip.route.end_place %></td>
+  <td class=" " style="text-align:center"><%= l trip.start_time, format: Settings.format_datetime.long %> </td>
+  <td class=" " style="text-align:center"><%= trip.bus.license_plate %> </td>
+  <td class=" " style="text-align:center"><%= trip.driver_major.name %> </td>
+  <td class=" " style="text-align:center"><%= trip.driver_minor.name %> </td>
+  <td class=" " style="text-align:center"><%= trip.tickets.booked.size %>/<%= trip.tickets.size %> </td>
+  <td class=" " style="text-align:center"><%= trip.price %> </td>
+  <td class=" " style="text-align:center"><%= Trip.human_enum_name(:status, trip.status) %></td>
+  <td class=" last" style="text-align:center">
+    <%= link_to t(".detail"), company_trip_path(current_user.company,trip) %>
+    <% if !trip.finished? && trip.tickets.booked.size == 0 %>
+      <%= link_to t(".edit"), edit_company_trip_path(current_user.company,trip) %>
+    <% end %>
   </td>
 </tr>

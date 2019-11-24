@@ -51,6 +51,9 @@ vn:
         password: "Mật khẩu"
         confirmation_password: "Xác nhận mật khẩu"
         sign_up: "Đăng ký"
+      edit:
+        title: "Chỉnh sửa trang cá nhân"
+        edit: "Chỉnh sửa trang cá nhân"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
@@ -69,5 +72,5 @@ vn:
       not_found: "not found"
       not_locked: "was not locked"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "1 lỗi xảy ra:"
+        other: "%{count} lỗi xảy ra:"

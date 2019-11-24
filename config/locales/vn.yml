@@ -1,9 +1,22 @@
 vn:
+  action: "Hành động"
+  find: "Tìm"
+  search: "Tìm kiếm..."
   api:
     bookings:
       create:
         has_booked: " vừa đặt vé chuyến đi "
         at: " lúc "
+  buses:
+    show:
+      bus: "Thông tin xe"
+      license_plate: "Biển số xe"
+      seats: "Số ghế"
+      list_trips: "Các chuyến đã chạy"
+      no_data: "Không có dữ liệu"
+      to: "đến"
+      driver_major: "Lái xe chính"
+      driver_minor: "Lái xe phụ"
   check:
     no_permission: "Bạn không có quyền này"
     require_login: "Bạn phải đăng nhập để thực hiện"
@@ -35,3 +48,40 @@ vn:
       - :day
       - :month
       - :year
+  validates:
+    datetime:
+      after_time_now: "phải sau thời gian hiện tại"
+  trips:
+    create:
+      error: "Thêm chuyến đi thất bại"
+      success: "Thêm chuyến đi thành công"
+    trip:
+      detail: "Xem"
+      edit: "Sửa"
+    index:
+      trip: "Danh sách các chuyến đi"
+      start_place: "Điểm đi"
+      end_place: "Điểm đến"
+      start_time: "Xuất phát lúc"
+      bus: "Xe"
+      driver_major: "Lái xe chính"
+      driver_minor: "Lái xe phụ"
+      booked: "Đã đặt"
+      seats: "Số ghế"
+      price: "Giá"
+      status: "Trạng thái"
+      add: "Thêm"
+    show:
+      infor_trip: "Thông tin chuyến đi"
+      start_time: "Giờ xuất phát"
+      start_place: "Điểm đi"
+      end_place: "Điểm đến"
+      detail: "Chi tiết chuyến đi"
+      driver_major: "Lái xe chính"
+      driver_minor: "Lái xe phụ"
+      bus: "Xe"
+      list_ticketing: "Danh sách đặt vé"
+      customer: "Tên khách hàng"
+      phone: "Số điện thoại"
+      status: "Trạng thái"
+      booked_time: "Đặt vé lúc"
