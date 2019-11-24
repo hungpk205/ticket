@@ -20,5 +20,6 @@
 //= require config_ckeditor
 //= require ckeditor/config
 //= require toastr
+//= require bootstrap-datepicker
 //= require_tree ../../../vendor/assets/javascripts
 //= require_tree .

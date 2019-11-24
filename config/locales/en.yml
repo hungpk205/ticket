@@ -1,9 +1,22 @@
 en:
+  action: "Action"
+  find: "Find"
+  search: "Search..."
   api:
     bookings:
       create:
         has_booked: " just booking trip name "
         at: " at "
+  buses:
+    show:
+      bus: "Bus information"
+      license_plate: "License plate"
+      seats: "Number of seats"
+      list_trips: "List trips has run"
+      no_data: "No data"
+      to: "to"
+      driver_major: "Driver major"
+      driver_minor: "Driver minor"
   check:
     no_permission: "You don't have permission"
     require_login: "You must login for do this"
@@ -29,3 +42,42 @@ en:
   errorpage:
     not_found:
       title: "Not found page"
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+  validates:
+    datetime:
+      after_current_time: "must be after current time"
+  trips:
+    trip:
+      detail: "Detail"
+      edit: "Edit"
+    index:
+      trip: "List trips"
+      start_place: "Start place"
+      end_place: "End place"
+      start_time: "Start time"
+      bus: "Bus"
+      driver_major: "Driver major"
+      driver_minor: "Driver minor"
+      booked: "Booked"
+      seats: "Seats"
+      price: "Price"
+      status: "Status"
+      add: "Add"
+    show:
+      infor_trip: "Trip information"
+      start_time: "Start time"
+      start_place: "Start place"
+      end_place: "End place"
+      driver_major: "Driver major"
+      driver_minor: "Driver minor"
+      bus: "Bus"
+      detail: "Trip detail"
+      list_ticketing: "Ticketing list"
+      customer: "Customer name"
+      phone: "Phone number"
+      status: "Status"
+      booked_time: "Booked time"

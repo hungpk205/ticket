@@ -4,17 +4,6 @@
       <div class="title_left">
         <h3><%= t(".infor_trip") %></h3>
       </div>
-
-      <div class="title_right">
-        <div class="col-md-5 col-sm-5  form-group pull-right top_search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Go!</button>
-            </span>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="clearfix"></div>
@@ -27,13 +16,22 @@
               <h3><%= @trip.name %></h3>
               <ul class="list-unstyled user_data">
                 <li>
-                  <i class="fa fa-map-marker user-profile-icon"></i> <%=  t(".start_time") %>: <%= l @trip.start_time, format: :full %>
+                  <i class="fa clock-o"></i> <%=  t(".start_time") %>: <%= l @trip.start_time, format: :full %>
                 </li>
                 <li>
-                  <i class="fa fa-briefcase user-profile-icon"></i> <%=  t(".start_lace") %>: <%= @trip.route.start_place %>
+                  <i class="fa fa-briefcase user-profile-icon"></i> <%=  t(".start_place") %>: <%= @trip.route.start_place %>
                 </li>
                 <li>
                   <i class="fa fa-briefcase user-profile-icon"></i> <%=  t(".end_place") %>: <%= @trip.route.end_place %>
+                </li>
+                <li>
+                  <i class="fa fa-user"></i> <%=  t(".driver_major") %>: <%= @trip.driver_major.name %>
+                </li>
+                <li>
+                  <i class="fa fa-user"></i> <%=  t(".driver_minor") %>: <%= @trip.driver_minor.name %>
+                </li>
+                <li>
+                  <i class="fa fa-bus"></i> <%=  t(".bus") %>: <%= @trip.bus.license_plate %>
                 </li>
               </ul>
               <br />
@@ -58,7 +56,7 @@
               <div class="" role="tabpanel" data-example-id="togglable-tabs">
                 <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                   <li role="presentation" class="">
-                    <a href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false"><%= t(".list_booking") %></a>
+                    <a href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false"><%= t(".list_ticketing") %></a>
                   </li>
                 </ul>
                 <% if @bookings.size > 0 %>
@@ -82,7 +80,7 @@
                     </div>
                   </div>
                 <% else %>
-                  <%= t(".no_data") %>
+                  <p class="text-center"><%= t(".no_data") %></p>
                 <% end %>
               </div>
             </div>

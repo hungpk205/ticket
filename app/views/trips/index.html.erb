@@ -1,41 +1,58 @@
 <div class="right_col" role="main">
-  <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="x_panel">
-      <div class="x_title">
-        <h2><%= t(".employee") %></h2>
-        <ul class="nav navbar-right panel_toolbox">
-          <li>
-            <%= link_to t(".add"), new_company_trip_path %>
-          </li>
-          <li>
-            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-          </li>
-        </ul>
-        <div class="clearfix"></div>
+  <div class="page-title">
+    <div class="title_left">
+      <h3><%= t(".trip") %></h3>
+    </div>
+
+    <div class="title_right">
+      <div class="col-md-5 col-sm-5  form-group pull-right top_search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="<%= t("search") %>">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button"><%= t("find") %></button>
+          </span>
+        </div>
       </div>
-      <div class="x_content">
-        <div class="table-responsive">
-          <table class="table table-striped jambo_table bulk_action">
-            <thead>
-              <tr class="headings">
-                <th class="column-title"><%= t(".name") %> </th>
-                <th class="column-title"><%= t(".start_time") %> </th>
-                <th class="column-title"><%= t(".bus") %> </th>
-                <th class="column-title"><%= t(".driver_major") %> </th>
-                <th class="column-title"><%= t(".driver_minor") %> </th>
-                <th class="column-title"><%= t(".booked") %> </th>
-                <th class="column-title"><%= t(".price") %> </th>
-                <th class="column-title"><%= t(".status") %> </th>
-                <th class="column-title no-link last">
-                  <span class="nobr">Action</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <%= render @trips %>
-            </tbody>
-          </table>
-          <%= paginate @trips %>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <ul class="nav navbar-right panel_toolbox">
+            <li>
+              <%= link_to t(".add"), new_company_trip_path %>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+              <thead>
+                <tr class="headings">
+                  <th class="column-title" style="text-align:center"><%= t(".start_place") %> </th>
+                  <th class="column-title" style="text-align:center"><%= t(".end_place") %> </th>
+                  <th class="column-title" style="text-align:center"><%= t(".start_time") %> </th>
+                  <th class="column-title" style="text-align:center"><%= t(".bus") %> </th>
+                  <th class="column-title" style="text-align:center"><%= t(".driver_major") %> </th>
+                  <th class="column-title" style="text-align:center"><%= t(".driver_minor") %> </th>
+                  <th class="column-title" style="text-align:center"><%= t(".booked") %>/<%= t(".seats") %> </th>
+                  <th class="column-title" style="text-align:center"><%= t(".price") %> </th>
+                  <th class="column-title" style="text-align:center"><%= t(".status") %> </th>
+                  <th class="column-title no-link last" style="text-align:center">
+                    <span class="nobr"><%= t("action") %></span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render @trips %>
+              </tbody>
+            </table>
+            <%= paginate @trips %>
+          </div>
         </div>
       </div>
     </div>

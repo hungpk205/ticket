@@ -43,6 +43,7 @@ en:
           openning: "Openning"
           full: "Full"
           closed: "Closed"
+          finished: "Finished"
     enums:
       employee:
         roles:

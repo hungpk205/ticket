@@ -12,6 +12,7 @@
  *
  *= require_tree ../../../vendor/assets/stylesheets
  *= require toastr
+ *= require bootstrap-datepicker
  *= require_tree .
  *= require_self
 
