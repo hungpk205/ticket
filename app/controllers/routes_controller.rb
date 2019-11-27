@@ -8,7 +8,8 @@ class RoutesController < ApplicationController
   end
 
   def show
-    @route = current_user.company.find_by id: params[:id]
+    @route = current_user.company.routes.find_by id: params[:id]
+    @trips = @route.trips
   end
 
   def new
@@ -16,7 +17,6 @@ class RoutesController < ApplicationController
   end
 
   def create
-    pry
     @route = @company.routes.build route_params
     if @route.save
       flash[:success] = t ".success"

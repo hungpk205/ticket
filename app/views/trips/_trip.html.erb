@@ -1,7 +1,7 @@
 <tr class="even pointer">
   <td class=" " style="text-align:center"><%= trip.route.start_place %></td>
   <td class=" " style="text-align:center"><%= trip.route.end_place %></td>
-  <td class=" " style="text-align:center"><%= l trip.start_time, format: Settings.format_datetime.long %> </td>
+  <td class=" " style="text-align:center"><%= l trip.start_time, format: Settings.format_time.long %> </td>
   <td class=" " style="text-align:center"><%= trip.bus.license_plate %> </td>
   <td class=" " style="text-align:center"><%= trip.driver_major.name %> </td>
   <td class=" " style="text-align:center"><%= trip.driver_minor.name %> </td>

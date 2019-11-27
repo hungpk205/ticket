@@ -1,9 +1,8 @@
 <tr class="even pointer">
-  <td class=" "><%= route.name %></td>
-  <td class=" "><%= route.start_place %></td>
-  <td class=" "><%= route.end_place %></td>
-  <td class=" last">
-    <%= link_to t(".detail"), company_route_path(current_user.company,route)  %>
-    <%= link_to t(".edit"), edit_company_route_path(current_user.company,route)  %>
+  <td class="text-center"><%= route.start_place %></td>
+  <td class="text-center"><%= route.end_place %></td>
+  <td class="text-center last">
+    <%= link_to t(".detail"), company_route_path(current_user.company,route), class: "btn btn-primary btn-xs" %>
+    <%= link_to t(".edit"), edit_company_route_path(current_user.company,route), class: "btn btn-info btn-xs" %>
   </td>
 </tr>

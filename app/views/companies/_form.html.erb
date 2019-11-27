@@ -15,7 +15,7 @@
     <% else %>
       <%= image_tag "/assets/default-image.jpg", id: "img_banner", width: "500", height: "auto" %>
     <% end %>
-    <%= f.input :company_info, class: "col-md-6 col-sm-6 form-control ckeditor" %>
+    <%= f.input :company_info, as: :ckeditor, class: "col-md-6 col-sm-6 form-control" %>
   <div class="ln_solid"></div>
   <div class="item form-group">
     <div class="col-md-6 col-sm-6 offset-md-3">

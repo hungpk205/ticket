@@ -32,6 +32,11 @@ en:
         statuses:
           ready: "Ready"
           busy: "Busy"
+      route:
+        name: "Name"
+        start_place: "Start place"
+        end_place: "End place"
+        detail: "Detail"
       trip:
         name: "Name"
         start_time: "Start time"

@@ -2,6 +2,8 @@ en:
   action: "Action"
   find: "Find"
   search: "Search..."
+  reset: "Reset"
+  submit: "Submit"
   api:
     bookings:
       create:
@@ -50,6 +52,11 @@ en:
   validates:
     datetime:
       after_current_time: "must be after current time"
+  routes:
+    new:
+      route: "Create route"
+      create: "Form create new route"
+
   trips:
     trip:
       detail: "Detail"
@@ -79,5 +86,6 @@ en:
       list_ticketing: "Ticketing list"
       customer: "Customer name"
       phone: "Phone number"
+      number_ticket: "Amount"
       status: "Status"
       booked_time: "Booked time"

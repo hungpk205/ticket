@@ -15,7 +15,7 @@ class Ability
         can :manage, Bus, company_id: user.company.id
         can :manage, Trip, company_id: user.company.id
         can :manage, Ticket, trip_id: user.company.trips.ids
-        can %i(read update), Booking, trip_id: user.company.trips.ids
+        can %i(read update accept reject), Booking, trip_id: user.company.trips.ids
       else
         can :create, Company
       end

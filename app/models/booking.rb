@@ -3,6 +3,6 @@ class Booking < ApplicationRecord
 
   has_many :tickets
 
-  enum status: %i(paying paid)
+  enum status: %i(paying paid canceled)
 
 end

@@ -16,13 +16,16 @@
               <h3><%= @trip.name %></h3>
               <ul class="list-unstyled user_data">
                 <li>
-                  <i class="fa clock-o"></i> <%=  t(".start_time") %>: <%= l @trip.start_time, format: :full %>
+                  <i class="fa fa-clock-o"></i> <%=  t(".start_time") %>: <%= l @trip.start_time, format: :full %>
                 </li>
                 <li>
-                  <i class="fa fa-briefcase user-profile-icon"></i> <%=  t(".start_place") %>: <%= @trip.route.start_place %>
+                  <i class="fa fa-map-marker"></i> <%=  t(".start_place") %>: <%= @trip.route.start_place %>
                 </li>
                 <li>
-                  <i class="fa fa-briefcase user-profile-icon"></i> <%=  t(".end_place") %>: <%= @trip.route.end_place %>
+                  <i class="fa fa-map-marker"></i> <%=  t(".end_place") %>: <%= @trip.route.end_place %>
+                </li>
+                <li>
+                  <i class="fa fa-money "></i> <%=  t(".price") %>: <%= @trip.price %>/<%= t(".ticket") %>
                 </li>
                 <li>
                   <i class="fa fa-user"></i> <%=  t(".driver_major") %>: <%= @trip.driver_major.name %>
@@ -40,12 +43,6 @@
               <div class="profile_title">
                 <div class="col-md-6">
                   <h2><%= t(".detail") %></h2>
-                </div>
-                <div class="col-md-6">
-                  <%# <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
-                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                    <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                  </div> %>
                 </div>
               </div>
               <!-- start of user-activity-graph -->
@@ -67,17 +64,47 @@
                           <tr>
                             <th>#</th>
                             <th><%= t(".customer") %></th>
-                            <th><%= t(".identity_card") %></th>
                             <th><%= t(".phone") %></th>
+                            <th><%= t(".number_ticket") %></th>
+                            <th><%= t(".total_price") %></th>
                             <th><%= t(".status") %></th>
                             <th><%= t(".booked_time") %></th>
+                            <th><%= t("action") %></th>
                           </tr>
                         </thead>
                         <tbody>
-                          <%= render @bookings %>
+                          <% @bookings.each_with_index do |booking, index| %>
+                            <tr>
+                              <td><%= index+1 %></td>
+                              <td class="vertical-align-mid"><%= booking.fullname %></td>
+                              <td class="vertical-align-mid"><%= booking.phone %></td>
+                              <% @list_ticket = "" %>
+                              <% booking.tickets.each do |ticket| %>
+                                <% @list_ticket += ticket.code + "," %>
+                              <% end %>
+                              <td class="vertical-align-mid text-center">
+                                <%= booking.tickets.size %>
+                                (<%= @list_ticket %>)
+                              </td>
+                              <td class="vertical-align-mid"><%= (@trip.price * booking.tickets.size) %></td>
+                              <td class="vertical-align-mid" id="status-<%= booking.id %>"><%= Booking.human_enum_name(:status, booking.status) %></td>
+                              <td class="vertical-align-mid"><%= l booking.created_at, format: Settings.format_time.long %></td>
+                              <td class="vertical-align-mid last" id="action-<%= booking.id %>">
+                                <% if booking.paying? %>
+                                  <%= link_to t(".accept"), accept_booking_path(booking.id), class: "btn btn-success btn-xs", method: :put, remote: true %>
+                                  <%= link_to t(".reject"), reject_booking_path(booking.id), class: "btn btn-danger btn-xs", method: :put, remote: true %>
+                                <% elsif booking.paid? %>
+                                  <%= link_to t(".confirmed"), "javascript:void(0)", class: "btn btn-primary btn-xs" %>
+                                <% else %>
+                                  <%= link_to t(".canceled"), "javascript:void(0)", class: "btn btn-warning btn-xs" %>
+                                <% end %>
+                              </td>
+                            </tr>
+                          <% end %>
                         </tbody>
                       </table>
                     </div>
+                    <%= paginate @bookings %>
                   </div>
                 <% else %>
                   <p class="text-center"><%= t(".no_data") %></p>
