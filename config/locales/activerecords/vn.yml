@@ -24,6 +24,11 @@ vn:
         roles:
           major: "Lái xe chính"
           minor: "Lái xe phụ"
+      booking:
+        statuses:
+          paying: "Chờ thanh toán"
+          paid: "Đã thanh toán"
+          canceled: "Đã hủy"
       bus:
         license_plate: "Biển số xe"
         slot: "Số ghế"
@@ -31,6 +36,11 @@ vn:
         statuses:
           ready: "Sẵn sàng"
           busy: "Bận"
+      route:
+        name: "Tên lộ trình"
+        start_place: "Điểm đi"
+        end_place: "Điểm đến"
+        detail: "Chi tiết"
       trip:
         name: "Tên chuyến đi"
         start_time: "Thời gian xuất bến"

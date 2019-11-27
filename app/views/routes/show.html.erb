@@ -1,0 +1,87 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3><%= t(".infor_route") %></h3>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+          <div class="x_content">
+            <div class="col-md-3 col-sm-3  profile_left">
+              <h3><%= @route.name %></h3>
+              <ul class="list-unstyled user_data">
+                <li>
+                  <i class="fa fa-briefcase"></i> <%=  t(".start_place") %>: <%= @route.start_place %>
+                </li>
+                <li>
+                  <i class="fa fa-briefcase"></i> <%=  t(".end_place") %>: <%= @route.end_place %>
+                </li>
+              </ul>
+              <br />
+            </div>
+            <div class="col-md-9 col-sm-9 ">
+              <div class="profile_title">
+                <div class="col-md-6">
+                  <h2><%= t(".detail") %></h2>
+                </div>
+                <div class="col-md-6">
+                </div>
+              </div>
+              <!-- start of user-activity-graph -->
+              <div id="graph_bar" style="width:100%; padding-bottom:20px;">
+                <%= raw @route.detail %>
+              </div>
+              <!-- end of user-activity-graph -->
+              <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                  <li role="presentation" class="">
+                    <a href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false"><%= t(".list_trip") %></a>
+                  </li>
+                </ul>
+                <% if @trips.size > 0 %>
+                  <div id="myTabContent" class="tab-content">
+                    <div role="tabpanel" class="tab-pane active " id="tab_content1" aria-labelledby="home-tab">
+                      <table class="data table table-striped no-margin">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th><%= t(".start_time") %></th>
+                            <th><%= t(".driver_major") %></th>
+                            <th><%= t(".driver_minor") %></th>
+                            <th><%= t(".bus") %></th>
+                            <th><%= t(".status") %></th>
+                            <th><%= t(".price") %></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% @trips.each_with_index do |trip, index| %>
+                            <tr>
+                              <td><%= index %></td>
+                              <td class="vertical-align-mid"><%= trip.start_time %></td>
+                              <td class="vertical-align-mid"><%= trip.driver_major.name %></td>
+                              <td class="vertical-align-mid"><%= trip.driver_minor.name %></td>
+                              <td class="vertical-align-mid"><%= trip.bus.license_plate %></td>
+                              <td class="vertical-align-mid"><%= trip.status %></td>
+                              <td class="vertical-align-mid"><%= trip.price %></td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                <% else %>
+                  <p class="text-center"><%= t("no_data") %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

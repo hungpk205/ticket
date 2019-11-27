@@ -9,13 +9,16 @@ Rails.application.routes.draw do
       resources :buses
       resources :routes
       resources :trips do
+        collection { post :search, to: 'trips#index' }
         resources :bookings, only: %i(show update)
       end
       resources :notifications
     end
   end
+  put "/accept/bookings/:id", to: "bookings#accept", as: "accept_booking"
+  put "/reject/bookings/:id", to: "bookings#reject", as: "reject_booking"
   namespace :api do
-    get "/bookings", to: "bookings#index"
+    post "/history-bookings", to: "bookings#index"
     post "/bookings", to: "bookings#create"
     get "/bookings/:id", to: "bookings#show"
     delete "/bookings/:id", to: "bookings#destroy"

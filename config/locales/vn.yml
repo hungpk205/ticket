@@ -2,11 +2,22 @@ vn:
   action: "Hành động"
   find: "Tìm"
   search: "Tìm kiếm..."
+  reset: "Tạo lại"
+  submit: "Xác nhận"
+  no_data: "Không có dữ liệu"
   api:
     bookings:
       create:
         has_booked: " vừa đặt vé chuyến đi "
         at: " lúc "
+  bookings:
+    accept:
+      success: "Thông tin đặt vé đã được xác nhận thành công"
+      error: "Thông tin đặt vé chưa được xác nhận bây giờ, vui lòng thử lại sau"
+    reject:
+      success: "Thông tin đặt vé đã bị hủy"
+      error: "Thông tin đặt vé chưa được hủy bây giờ, vui lòng thử lại sau"
+      canceled: "Đã bị hủy"
   buses:
     show:
       bus: "Thông tin xe"
@@ -50,7 +61,28 @@ vn:
       - :year
   validates:
     datetime:
-      after_time_now: "phải sau thời gian hiện tại"
+      after_current_time: "phải sau thời gian hiện tại"
+  routes:
+    create:
+      success: "Tạo chuyến đi thành công"
+      error: "Tạo chuyến đi thất bại"
+    route:
+      edit: "Sửa"
+      detail: "Xem"
+    new:
+      route: "Tạo chuyến đi"
+      create: "Biểu mẫu tạo mới chuyến đi"
+    show:
+      infor_route: "Thông tin chuyến đi"
+      start_place: "Điểm đi"
+      end_place: "Điểm đến"
+      detail: "Chi tiết"
+      list_trip: "Danh sách chuyến đi"
+    index:
+      add: "Thêm"
+      start_place: "Điểm đi"
+      end_place: "Điểm đến"
+      route: "Danh sách lộ trình"
   trips:
     create:
       error: "Thêm chuyến đi thất bại"
@@ -62,7 +94,7 @@ vn:
       trip: "Danh sách các chuyến đi"
       start_place: "Điểm đi"
       end_place: "Điểm đến"
-      start_time: "Xuất phát lúc"
+      start_time: "Thời gian đi"
       bus: "Xe"
       driver_major: "Lái xe chính"
       driver_minor: "Lái xe phụ"
@@ -79,9 +111,25 @@ vn:
       detail: "Chi tiết chuyến đi"
       driver_major: "Lái xe chính"
       driver_minor: "Lái xe phụ"
+      price: "Giá"
+      ticket: "vé"
       bus: "Xe"
       list_ticketing: "Danh sách đặt vé"
       customer: "Tên khách hàng"
       phone: "Số điện thoại"
+      number_ticket: "Số lượng"
+      total_price: "Tổng tiền"
       status: "Trạng thái"
       booked_time: "Đặt vé lúc"
+      accept: "Đồng ý"
+      reject: "Từ chối"
+      confirmed: "Đã xác nhận"
+      canceled: "Đã bị hủy"
+  homepages:
+    home:
+      company: "Công ty"
+      edit: "Chỉnh sửa"
+      info: "Thông tin giới thiệu"
+      logo: "Logo công ty"
+      address: "Địa chỉ"
+      phone: "Số điện thoại"

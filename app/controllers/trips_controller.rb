@@ -6,12 +6,14 @@ class TripsController < ApplicationController
   before_action :load_data, only: %i(new create edit)
 
   def index
-    @trips = @company.trips.page(params[:page]).per(10)
+    @q = @company.trips.ransack(params[:q])
+    @trips = @q.result.page(params[:page]).per(10)
+    @routes = current_user.company.routes
   end
 
   def show
     @trip = @company.trips.find_by id: params[:id]
-    @bookings = @trip.bookings
+    @bookings = @trip.bookings.page(params[:page]).per(10)
   end
 
   def new
@@ -22,12 +24,11 @@ class TripsController < ApplicationController
     Trip.transaction do
       @trip = @company.trips.build trip_params
       @trip.save!
+      @trip.update_columns(start_day_readonly: @trip.start_time.to_date)
       # Create tickets
       (1..@trip.bus.slot).each do |i|
         @ticket = @trip.tickets.build
         @ticket.code = "T#{@trip.id}-S#{i}"
-        # @ticket.code = "T#{@trip.id}-S#{i}"
-        # @ticket.trip_id = @trip.id
         @ticket.booking_id = ""
         @ticket.save!
       end

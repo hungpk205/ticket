@@ -1,36 +1,50 @@
 <div class="right_col" role="main">
-  <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="x_panel">
-      <div class="x_title">
-        <h2><%= t(".employee") %></h2>
-        <ul class="nav navbar-right panel_toolbox">
-          <li>
-            <%= link_to t(".add"), new_company_route_path %>
-          </li>
-          <li>
-            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-          </li>
-        </ul>
-        <div class="clearfix"></div>
+  <div class="page-title">
+    <div class="title_left">
+      <h3><%= t(".route") %></h3>
+    </div>
+    <div class="title_right">
+      <div class="col-md-5 col-sm-5  form-group pull-right top_search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="<%= t("search") %>">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><%= t("find") %></button>
+          </span>
+        </div>
       </div>
-      <div class="x_content">
-        <div class="table-responsive">
-          <table class="table table-striped jambo_table bulk_action">
-            <thead>
-              <tr class="headings">
-                <th class="column-title"><%= t(".name") %> </th>
-                <th class="column-title"><%= t(".start_place") %> </th>
-                <th class="column-title"><%= t(".end_place") %> </th>
-                <th class="column-title no-link last">
-                  <span class="nobr">Action</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <%= render @routes %>
-            </tbody>
-          </table>
-          <%= paginate @routes %>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <ul class="nav navbar-right panel_toolbox">
+            <li>
+              <%= button_to t(".add"), new_company_route_path, method: :get, class: "btn btn-success btn-xs" %>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+              <thead>
+                <tr class="headings">
+                  <th class="column-title text-center"><%= t(".start_place") %> </th>
+                  <th class="column-title text-center"><%= t(".end_place") %> </th>
+                  <th class="column-title text-center no-link last">
+                    <span class="nobr"><%= t("action") %></span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render @routes %>
+              </tbody>
+            </table>
+            <%= paginate @routes %>
+          </div>
         </div>
       </div>
     </div>
