@@ -6,6 +6,24 @@ class BookingsController < ApplicationController
     @booking = Booking.find_by id: params[:id]
   end
 
+  def create
+    Booking.transaction do
+      @booking.update_attributes(fullname: params[:booking][:fullname], phone: params[:booking][:phone], trip_id: params[:trip_id])
+      @booking.save!
+      @tickets = Ticket.find_ids(params[:booking][:ticket_ids])
+      @tickets.update_all(booking_id: @booking.id)
+      @tickets.update_all(status: :booked)
+
+      flash[:success] = t(".success")
+      load_data
+      redirect_to company_trip_path(@company,@trip)
+    end
+  rescue ActiveRecord::RecordInvalid
+    flash[:error] = t(".error")
+    load_data
+    redirect_to company_trip_path(@company,@trip)
+  end
+
   def accept
     Booking.transaction do
       @booking.paid!
@@ -38,12 +56,22 @@ class BookingsController < ApplicationController
     respond_to do |format|
       format.js
     end
-
   end
 
   private
 
   def load_booking
     @booking = Booking.find_by id: params[:id]
+  end
+
+  def booking_params
+    params.require(:booking).permit(:fullname, :phone, :ticket_ids)
+  end
+
+  def load_data
+    @trip = @company.trips.find_by id: params[:trip_id]
+    @bookings = @trip.bookings.page(params[:page]).per(10)
+    @tickets = @trip.tickets.ticket_empty
+    @booking = Booking.new
   end
 end

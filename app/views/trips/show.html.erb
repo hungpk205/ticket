@@ -110,6 +110,55 @@
                   <p class="text-center"><%= t(".no_data") %></p>
                 <% end %>
               </div>
+              <br>
+              <div class="profile_title">
+                <div class="col-md-6">
+                  <h2><%= t(".form_add_booking") %></h2>
+                </div>
+              </div>
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Form Design <small>different form elements</small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                      <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br />
+                  <%= form_for @booking, class: "form-label-left input_mask", remote: true, url: company_trip_bookings_path(trip_id: @trip.id) do |f| %>
+                    <div class="col-md-6 col-sm-6  form-group has-feedback">
+                      <%= f.text_field :fullname, class: "form-control has-feedback-left", placeholder: t(".fullname") %>
+                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6  form-group has-feedback">
+                      <%= f.text_field :phone, class: "form-control has-feedback-left", placeholder: t(".phone") %>
+                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12  form-group has-feedback">
+                      <label class="col-form-label col-md-6 col-sm-6 "><%= t(".select_tickets") %> <span class="required">*</span>
+                    </div>
+                    <div class="col-md-6 col-sm-6  form-group has-feedback">
+                      <%= f.collection_select :ticket_ids, @tickets, :id, :code, {prompt: false}, {multiple: true, class: "select2_multiple form-control height_select_multi"} %>
+                    </div>
+
+                     <div class="form-group row">
+                      <div class="col-md-12 col-sm-12  offset-md-6">
+                        <button type="button" class="btn btn-primary">Cancel</button>
+                        <button class="btn btn-primary" type="reset">Reset</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                      </div>
+                    </div>
+
+                  <% end %>
+
+
+                  </div>
+                </div>
             </div>
           </div>
         </div>
