@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :routes
       resources :trips do
         collection { post :search, to: 'trips#index' }
-        resources :bookings, only: %i(show update)
+        resources :bookings, only: %i(show update create)
       end
       resources :notifications
     end

@@ -12,6 +12,7 @@ vn:
         at: " lúc "
   bookings:
     accept:
+      confirmed: "Đã xác nhận"
       success: "Thông tin đặt vé đã được xác nhận thành công"
       error: "Thông tin đặt vé chưa được xác nhận bây giờ, vui lòng thử lại sau"
     reject:
@@ -125,6 +126,8 @@ vn:
       reject: "Từ chối"
       confirmed: "Đã xác nhận"
       canceled: "Đã bị hủy"
+      fullname: "Họ và tên"
+      phone: "Số điện thoại"
   homepages:
     home:
       company: "Công ty"

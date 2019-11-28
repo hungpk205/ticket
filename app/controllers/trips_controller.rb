@@ -14,6 +14,8 @@ class TripsController < ApplicationController
   def show
     @trip = @company.trips.find_by id: params[:id]
     @bookings = @trip.bookings.page(params[:page]).per(10)
+    @tickets = @trip.tickets.ticket_empty
+    @booking = Booking.new
   end
 
   def new

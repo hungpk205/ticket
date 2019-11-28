@@ -2,5 +2,5 @@
   toastr['warning']('<%= @success %>');
   $('#status-<%= @booking.id %>').text('<%= Booking.human_enum_name(:status, @booking.status) %>');
   $('#action-<%= @booking.id %>').empty();
-  $('#action-<%= @booking.id %>').html('<%= link_to t(".canceled"), "javascript:void(0)", class: "btn btn-xs" %>')
+  $('#action-<%= @booking.id %>').html('<%= link_to t(".canceled"), "javascript:void(0)", class: "btn btn-warning btn-xs" %>')
 <% end %>
