@@ -42,6 +42,6 @@ class RoutesController < ApplicationController
   private
 
   def route_params
-    params.require(:route).permit(:name,:start_place, :end_place, :detail).merge! company_id: current_user.company.id
+    params.require(:route).permit(:start_place, :end_place, :detail).merge! company_id: current_user.company.id
   end
 end

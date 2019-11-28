@@ -35,7 +35,7 @@
         <div class="x_title">
           <ul class="nav navbar-right panel_toolbox">
             <li>
-              <%= link_to t(".add"), new_company_trip_path %>
+              <%= button_to t(".add"), new_company_trip_path, method: :get, class: "btn btn-success" %>
             </li>
           </ul>
           <div class="clearfix"></div>

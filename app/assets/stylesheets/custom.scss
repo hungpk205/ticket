@@ -4732,3 +4732,48 @@ ul.notifications {
 .height_select_multi {
   height: 200px !important;
 }
+
+.no-style-list-ul {
+  list-style: none;
+  display: inline-block;
+  padding-inline-start: inherit;
+}
+
+.seat-bus-row {
+  float: left;
+  padding: 2px 2px;
+  width: 45px;
+  border: 1px solid;
+  margin: 0px 3px;
+  border-radius: 10px;
+  text-align: center;
+}
+.li-row-floor {
+  display: flex;
+  padding-bottom: 5px;
+  float: left;
+  padding-left: 0px;
+}
+.seat-empty {
+  background-color: #4aff4a;
+}
+.seat-booked {
+  background-color: #94a3b3;
+}
+.example-seat-empty {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #919191;
+  margin-left: 5px;
+  background-color: #4aff4a;
+}
+
+.example-seat-booked {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #919191;
+  margin-left: 5px;
+  background-color: #94a3b3;
+}

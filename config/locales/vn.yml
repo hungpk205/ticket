@@ -11,6 +11,9 @@ vn:
         has_booked: " vừa đặt vé chuyến đi "
         at: " lúc "
   bookings:
+    create:
+      success: "Đặt vé thành công"
+      error: "Đặt vé thất bại"
     accept:
       confirmed: "Đã xác nhận"
       success: "Thông tin đặt vé đã được xác nhận thành công"
@@ -20,6 +23,19 @@ vn:
       error: "Thông tin đặt vé chưa được hủy bây giờ, vui lòng thử lại sau"
       canceled: "Đã bị hủy"
   buses:
+    create:
+      success: "Tạo mới xe thành công"
+      error: "Tạo mới xe thất bại"
+    bus:
+      detail: "Chi tiết"
+      edit: "Sửa"
+    index:
+      bus: "Danh sách xe"
+      license_plate: "Biển số xe"
+      type_quality: "Loại xe"
+      slot: "Số ghế"
+      status: "Trạng thái"
+      add: "Thêm"
     show:
       bus: "Thông tin xe"
       license_plate: "Biển số xe"
@@ -65,29 +81,35 @@ vn:
       after_current_time: "phải sau thời gian hiện tại"
   routes:
     create:
-      success: "Tạo chuyến đi thành công"
-      error: "Tạo chuyến đi thất bại"
+      success: "Tạo lộ trình thành công"
+      error: "Tạo lộ trình thất bại"
     route:
       edit: "Sửa"
       detail: "Xem"
     new:
-      route: "Tạo chuyến đi"
-      create: "Biểu mẫu tạo mới chuyến đi"
+      route: "Tạo lộ trình"
+      create: "Biểu mẫu tạo mới lộ trình"
     show:
-      infor_route: "Thông tin chuyến đi"
+      infor_route: "Thông tin lộ trình"
       start_place: "Điểm đi"
       end_place: "Điểm đến"
-      detail: "Chi tiết"
-      list_trip: "Danh sách chuyến đi"
+      detail: "Chi tiết lộ trình"
+      list_trip: "Danh sách chuyến đi theo lộ trình"
     index:
       add: "Thêm"
       start_place: "Điểm đi"
       end_place: "Điểm đến"
       route: "Danh sách lộ trình"
   trips:
+    new:
+      trip: "Tạo chuyến đi"
+      create: "Biểu mẫu tạo chuyến đi"
     create:
       error: "Thêm chuyến đi thất bại"
       success: "Thêm chuyến đi thành công"
+    form:
+      route: "Lộ trình"
+      bus: "Xe"
     trip:
       detail: "Xem"
       edit: "Sửa"
@@ -128,6 +150,14 @@ vn:
       canceled: "Đã bị hủy"
       fullname: "Họ và tên"
       phone: "Số điện thoại"
+      floor_1: "Tầng 1"
+      floor_2: "Tầng 2"
+      map_seat: "Sơ đồ ghế"
+      seat_empty: "Ghế có thể đặt"
+      seat_booked: "Ghế đã được đặt"
+      slot: "chỗ"
+      select_tickets: "Chọn vé"
+      form_add_booking: "Đặt vé xe"
   homepages:
     home:
       company: "Công ty"
@@ -136,3 +166,9 @@ vn:
       logo: "Logo công ty"
       address: "Địa chỉ"
       phone: "Số điện thoại"
+  views:
+    pagination:
+      first: "Trang đầu"
+      previous: "Trang trước"
+      next: "Trang sau"
+      last: "Trang cuối"

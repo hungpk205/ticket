@@ -1,6 +1,6 @@
 <%= simple_form_for [@company,@bus], html: {class: "col-md-6 offset-md-3"} do |f| %>
   <%= f.input :license_plate, class: "col-md-6 col-sm-6 form-control" %>
-  <%= f.input :slot, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :type_quality, as: :select, include_blank: false, collection: enum_options_for_select(Bus, :type_quality), class: "col-md-6 col-sm-6 form-control" %>
   <div class="ln_solid"></div>
   <div class="item form-group">
     <div class="col-md-6 col-sm-6 offset-md-3">

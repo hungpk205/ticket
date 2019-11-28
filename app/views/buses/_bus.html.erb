@@ -1,5 +1,6 @@
 <tr class="even pointer">
   <td class=" "><%= bus.license_plate %></td>
+  <td class=" "><%= Bus.human_enum_name(:type_quality, bus.type_quality) %></td>
   <td class=" "><%= bus.slot %> </td>
   <td class=" "><%= Bus.human_enum_name(:status, bus.status) %></td>
   <td class=" last">

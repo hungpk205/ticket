@@ -36,6 +36,10 @@ vn:
         statuses:
           ready: "Sẵn sàng"
           busy: "Bận"
+        type_quality: "Loại xe"
+        type_qualities:
+          normal: "Xe giường nằm"
+          vip: "Xe limousines"
       route:
         name: "Tên lộ trình"
         start_place: "Điểm đi"
@@ -58,6 +62,16 @@ vn:
         roles:
           major: "Tài xế chính"
           minor: "Tài xế phụ"
+      bus:
+        type_qualities:
+          normal: "Xe giường nằm (46 chỗ)"
+          vip: "Xe limousines (36 chỗ)"
+      trip:
+        statuses:
+          openning: "Đang mở"
+          full: "Hết chỗ"
+          closed: "Đã đóng"
+          finished: "Đã kết thúc"
     errors:
       models:
         company:

@@ -34,10 +34,81 @@
                   <i class="fa fa-user"></i> <%=  t(".driver_minor") %>: <%= @trip.driver_minor.name %>
                 </li>
                 <li>
-                  <i class="fa fa-bus"></i> <%=  t(".bus") %>: <%= @trip.bus.license_plate %>
+                  <i class="fa fa-bus"></i> <%=  t(".bus") %>: <%= @trip.bus.license_plate %> - <%= Bus.human_enum_name(:type_quality, @trip.bus.type_quality) %> (<%= @trip.bus.slot %> <%= t(".slot") %>)
                 </li>
               </ul>
               <br />
+              <div>
+                <div><span><%= t(".map_seat") %></span></div>
+                <div><div class="example-seat-empty"></div><span style="float:left">- <%= t(".seat_empty") %></span></div>
+                <div><div class="example-seat-booked"></div><span style="float:left">- <%= t(".seat_booked") %></span></div>
+              </div>
+              <ul class="no-style-list-ul">
+                <li id="ticket-floor1">
+                  <p><%= t(".floor_1") %></p>
+                  <ul class="no-style-list-ul">
+                    <li id="floor1-A" class="li-row-floor">
+                      <ul class="no-style-list-ul">
+                        <% @tickets_t1.each do |ticket| %>
+                          <% if ticket.code.include? "A" %>
+                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %></span></li>
+                          <% end %>
+                        <% end %>
+                      </ul>
+                    </li>
+                    <li id="floor1-B" class="li-row-floor">
+                      <ul class="no-style-list-ul">
+                        <% @tickets_t1.each do |ticket| %>
+                          <% if ticket.code.include? "B" %>
+                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %></span></li>
+                          <% end %>
+                        <% end %>
+                      </ul>
+                    </li>
+                    <li id="floor1-C" class="li-row-floor">
+                      <ul class="no-style-list-ul">
+                        <% @tickets_t1.each do |ticket| %>
+                          <% if ticket.code.include? "C" %>
+                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %></span></li>
+                          <% end %>
+                        <% end %>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li id="ticket-floor2">
+                  <p><%= t(".floor_2") %></p>
+                  <ul class="no-style-list-ul">
+                    <li id="floor2-A" class="li-row-floor">
+                      <ul class="no-style-list-ul">
+                        <% @tickets_t2.each do |ticket| %>
+                          <% if ticket.code.include? "A" %>
+                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %></span></li>
+                          <% end %>
+                        <% end %>
+                      </ul>
+                    </li>
+                    <li id="floor2-B" class="li-row-floor">
+                      <ul class="no-style-list-ul">
+                        <% @tickets_t2.each do |ticket| %>
+                          <% if ticket.code.include? "B" %>
+                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %></span></li>
+                          <% end %>
+                        <% end %>
+                      </ul>
+                    </li>
+                    <li id="floor2-C" class="li-row-floor">
+                      <ul class="no-style-list-ul">
+                        <% @tickets_t2.each do |ticket| %>
+                          <% if ticket.code.include? "C" %>
+                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %><span></li>
+                          <% end %>
+                        <% end %>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </div>
             <div class="col-md-9 col-sm-9 ">
               <div class="profile_title">
@@ -117,15 +188,6 @@
                 </div>
               </div>
               <div class="x_panel">
-                <div class="x_title">
-                  <h2>Form Design <small>different form elements</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                      <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
                 <div class="x_content">
                   <br />
                   <%= form_for @booking, class: "form-label-left input_mask", remote: true, url: company_trip_bookings_path(trip_id: @trip.id) do |f| %>
@@ -136,7 +198,7 @@
 
                     <div class="col-md-6 col-sm-6  form-group has-feedback">
                       <%= f.text_field :phone, class: "form-control has-feedback-left", placeholder: t(".phone") %>
-                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                     </div>
 
                     <div class="col-md-12 col-sm-12  form-group has-feedback">
@@ -148,15 +210,11 @@
 
                      <div class="form-group row">
                       <div class="col-md-12 col-sm-12  offset-md-6">
-                        <button type="button" class="btn btn-primary">Cancel</button>
-                        <button class="btn btn-primary" type="reset">Reset</button>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button class="btn btn-primary" type="reset"><%= t("reset") %></button>
+                        <button type="submit" class="btn btn-success"><%= t("submit") %></button>
                       </div>
                     </div>
-
                   <% end %>
-
-
                   </div>
                 </div>
             </div>
