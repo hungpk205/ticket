@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_162515) do
+ActiveRecord::Schema.define(version: 2019_11_28_125509) do
 
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "fullname"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_162515) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
+    t.integer "type_quality", default: 0
     t.index ["company_id"], name: "index_buses_on_company_id"
   end
 
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_162515) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "phone"
+    t.integer "status", default: 0
     t.index ["company_id"], name: "index_employees_on_company_id"
   end
 

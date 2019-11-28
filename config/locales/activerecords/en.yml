@@ -32,6 +32,14 @@ en:
         statuses:
           ready: "Ready"
           busy: "Busy"
+        type_quality: "Type quality"
+        type_qualities:
+          normal: "Normal"
+          vip: "Limousines"
+        type_floor: "Type floor"
+        type_floors:
+          one: "One"
+          two: "Two"
       route:
         name: "Name"
         start_place: "Start place"

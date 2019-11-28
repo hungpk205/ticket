@@ -62,7 +62,7 @@ class Api::BookingsController < ApplicationController
       @booking.trip_id = params[:trip_id]
       @booking.save!
 
-      @tickets = Ticket.where(code: params[:tickets], trip_id: params[:trip_id])
+      @tickets = Ticket.where(id: params[:tickets], trip_id: params[:trip_id])
       if @tickets.size == 0
         msg = { status: :bad_request, message: "Not found tickets!", success: false }
         return render json: msg

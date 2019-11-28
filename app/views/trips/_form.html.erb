@@ -5,16 +5,16 @@
   <%= f.input :driver_minor_id, as: :select, include_blank: false, collection: @driver_minor, class: "col-md-6 col-sm-6 form-control" %>
   <%= f.input :price, class: "col-md-6 col-sm-6 form-control" %>
   <%= f.input :status, as: :select, include_blank: false, collection: enum_options_for_select(Trip, :status), class: "col-md-6 col-sm-6 form-control" %>
-  <%= f.input :route_id, as: :select, include_blank: false, collection: @routes,
+  <%= f.input :route_id, label: t(".route") , as: :select, include_blank: false, collection: @routes,
     label_method: lambda {
       |route| "#{route.start_place} - #{route.end_place}"
     }, value_method: :id, class: "col-md-6 col-sm-6 form-control" %>
-  <%= f.input :bus_id, as: :select, include_blank: false, collection: @buses, label_method: :license_plate, value_method: :id, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :bus_id, label: t(".bus") , as: :select, include_blank: false, collection: @buses, label_method: :license_plate, value_method: :id, class: "col-md-6 col-sm-6 form-control" %>
   <div class="ln_solid"></div>
   <div class="item form-group">
     <div class="col-md-6 col-sm-6 offset-md-3">
-      <button class="btn btn-primary" type="reset"><%= t(".reset") %></button>
-      <button type="submit" class="btn btn-success"><%= t(".submit") %></button>
+      <button class="btn btn-primary" type="reset"><%= t("reset") %></button>
+      <button type="submit" class="btn btn-success"><%= t("submit") %></button>
     </div>
   </div>
 <% end %>

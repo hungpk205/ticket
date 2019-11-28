@@ -73,5 +73,7 @@ class BookingsController < ApplicationController
     @bookings = @trip.bookings.page(params[:page]).per(10)
     @tickets = @trip.tickets.ticket_empty
     @booking = Booking.new
+    @tickets_t1 = @trip.tickets.tickets_t1
+    @tickets_t2 = @trip.tickets.tickets_t2
   end
 end

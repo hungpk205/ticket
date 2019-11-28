@@ -10,6 +10,9 @@ en:
         has_booked: " just booking trip name "
         at: " at "
   buses:
+    create:
+      success: "Create new bus success"
+      errro: "Create new bus error"
     show:
       bus: "Bus information"
       license_plate: "License plate"

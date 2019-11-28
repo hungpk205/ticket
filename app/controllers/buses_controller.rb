@@ -16,6 +16,13 @@ class BusesController < ApplicationController
 
   def create
     @bus = @company.buses.build bus_params
+    #Check type quality
+    if @bus.normal?
+      @bus.slot = 46
+    elsif @bus.vip?
+      @bus.slot = 36
+    end
+
     if @bus.save
       flash[:success] = t ".success"
       redirect_to company_buses_path
@@ -37,7 +44,7 @@ class BusesController < ApplicationController
   private
 
   def bus_params
-    params.require(:bus).permit(:license_plate, :slot).merge! company_id: current_user.company.id
+    params.require(:bus).permit(:license_plate, :type_quality).merge! company_id: current_user.company.id
   end
 
 
