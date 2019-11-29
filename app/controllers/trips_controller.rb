@@ -6,7 +6,7 @@ class TripsController < ApplicationController
   before_action :load_data, only: %i(new create edit)
 
   def index
-    @q = @company.trips.ransack(params[:q])
+    @q = @company.trips.search(params[:q])
     @trips = @q.result.page(params[:page]).per(10)
     @routes = current_user.company.routes
   end
@@ -72,7 +72,7 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:name, :start_time, :driver_major_id,
+    params.require(:trip).permit(:name, :start_time, :end_time, :driver_major_id,
       :driver_minor_id, :price, :status, :bus_id, :route_id).merge! company_id: current_user.company.id
   end
 

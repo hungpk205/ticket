@@ -8,4 +8,6 @@ class Employee < ApplicationRecord
   validates :name, presence: true
   enum role: %i(major minor)
   enum status: %i(ready busy)
+
+  scope :is_ready, ->{where(status: :ready)}
 end

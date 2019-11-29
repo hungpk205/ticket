@@ -55,11 +55,11 @@ en:
   validates:
     datetime:
       after_current_time: "must be after current time"
+      after_start_time: "must be after start time"
   routes:
     new:
       route: "Create route"
       create: "Form create new route"
-
   trips:
     trip:
       detail: "Detail"
@@ -69,6 +69,7 @@ en:
       start_place: "Start place"
       end_place: "End place"
       start_time: "Start time"
+      end_time: "End time"
       bus: "Bus"
       driver_major: "Driver major"
       driver_minor: "Driver minor"

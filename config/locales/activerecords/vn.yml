@@ -46,8 +46,10 @@ vn:
         end_place: "Điểm đến"
         detail: "Chi tiết"
       trip:
+        bus_id: "Xe"
         name: "Tên chuyến đi"
-        start_time: "Thời gian xuất bến"
+        start_time: "Thời gian đi"
+        end_time: "Thời gian đến"
         driver_major_id: "Lái xe chính"
         driver_minor_id: "Lái xe phụ"
         price: "Giá vé"
