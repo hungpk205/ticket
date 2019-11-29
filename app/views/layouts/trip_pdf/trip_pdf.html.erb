@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+
+    <%= wicked_pdf_stylesheet_link_tag "downloads/downloads" %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

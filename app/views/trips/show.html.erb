@@ -5,7 +5,7 @@
         <h3><%= t(".infor_trip") %></h3>
       </div>
     </div>
-    <%= link_to "Excel", export_company_trip_path(format: :xlsx) %>
+    <%= button_to t(".export_pdf"), download_company_trip_path(format: :pdf), method: :get, class: "btn btn-info", style:"float:right" %>
     <div class="clearfix"></div>
 
     <div class="row">
