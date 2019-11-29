@@ -1,0 +1,90 @@
+require "axlsx"
+
+xlsx_package = Axlsx::Package.new
+wb = xlsx_package.workbook
+col_widths = [10, 10, 10, 10, 10, 10]
+wb.styles do |style|
+  name_project = style.add_style(bg_color: "FFFF00", fg_color: "0000FF", sz: 18,
+    b: true, alignment: {horizontal: :center, vertical: :center})
+  wrap = style.add_style(alignment: {wrap_text: true})
+  header = style.add_style(b: true)
+  wb.add_worksheet(name: "Bookings") do |sheet|
+    sheet.add_row ["Lộ trình: " + @trip.route.start_place + " - " + @trip.route.end_place], style: name_project, height: 50
+    sheet.merge_cells "A1:J1"
+    sheet.merge_cells "A2:J2"
+    sheet.add_row
+    sheet.column_widths(*col_widths)
+    # Create the header row
+    sheet.add_row []
+    sheet.add_row [t(".floor_1")]
+    row1A = sheet.add_row
+    row1B = sheet.add_row
+    row1C = sheet.add_row
+    sheet.add_row [t(".floor_2")]
+    row2A = sheet.add_row
+    row2B = sheet.add_row
+    row2C = sheet.add_row
+    @tickets_t1.each do |ticket_t1|
+      if ticket_t1.code.include?("A")
+        @customer = ticket_t1.booking
+        if @customer.present?
+          row1A.add_cell (t(".fullname") + ": " + @customer.fullname + "\r" + t(".phone_number") + ": " + @customer.phone + "\r" + t(".seat") + ": " +  ticket_t1.code[3,ticket_t1.code.bytesize]), style: wrap, height:50
+        else
+          row1A.add_cell (t(".fullname") + ": " + "\r" + t(".phone_number") + ": " + "\r" + t(".seat") + ": " +  ticket_t1.code[3,ticket_t1.code.bytesize]), style: wrap, height:50
+        end
+      end
+    end
+    @tickets_t1.each do |ticket_t1|
+      if ticket_t1.code.include?("B")
+        @customer = ticket_t1.booking
+        if @customer.present?
+          row1B.add_cell (t(".fullname") + ": " + @customer.fullname + "\r" + t(".phone_number") + ": " + @customer.phone + "\r" + t(".seat") + ": " +  ticket_t1.code[3,ticket_t1.code.bytesize]), style: wrap, height:50
+        else
+          row1B.add_cell (t(".fullname") + ": " + "\r" + t(".phone_number") + ": " + "\r" + t(".seat") + ": " +  ticket_t1.code[3,ticket_t1.code.bytesize]), style: wrap, height:50
+        end
+      end
+    end
+    @tickets_t1.each do |ticket_t1|
+      if ticket_t1.code.include?("C")
+        @customer = ticket_t1.booking
+        if @customer.present?
+          row1C.add_cell (t(".fullname") + ": " + @customer.fullname + "\r" + t(".phone_number") + ": " + @customer.phone + "\r" + t(".seat") + ": " +  ticket_t1.code[3,ticket_t1.code.bytesize]), style: wrap, height:50
+        else
+          row1C.add_cell (t(".fullname") + ": " + "\r" + t(".phone_number") + ": " + "\r" + t(".seat") + ": " +  ticket_t1.code[3,ticket_t1.code.bytesize]), style: wrap, height:50
+        end
+      end
+    end
+    @tickets_t2.each do |ticket_t2|
+      if ticket_t2.code.include?("A")
+        @customer = ticket_t2.booking
+        if @customer.present?
+          row2A.add_cell (t(".fullname") + ": " + @customer.fullname + "\r" + t(".phone_number") + ": " + @customer.phone + "\r" + t(".seat") + ": " +  ticket_t2.code[3,ticket_t2.code.bytesize]), style: wrap, height:50
+        else
+          row2A.add_cell (t(".fullname") + ": " + "\r" + t(".phone_number") + ": " + "\r" + t(".seat") + ": " +  ticket_t2.code[3,ticket_t2.code.bytesize]), style: wrap, height:50
+        end
+      end
+    end
+    @tickets_t2.each do |ticket_t2|
+      if ticket_t2.code.include?("B")
+        @customer = ticket_t2.booking
+        if @customer.present?
+          row2B.add_cell (t(".fullname") + ": " + @customer.fullname + "\r" + t(".phone_number") + ": " + @customer.phone + "\r" + t(".seat") + ": " +  ticket_t2.code[3,ticket_t2.code.bytesize]), style: wrap, height:50
+        else
+          row2B.add_cell (t(".fullname") + ": " + "\r" + t(".phone_number") + ": " + "\r" + t(".seat") + ": " +  ticket_t2.code[3,ticket_t2.code.bytesize]), style: wrap, height:50        end
+      end
+    end
+    sheet.add_row
+    @tickets_t2.each do |ticket_t2|
+      if ticket_t2.code.include?("C")
+        @customer = ticket_t2.booking
+        if @customer.present?
+          row2C.add_cell (t(".fullname") + ": " + @customer.fullname + "\r" + t(".phone_number") + ": " + @customer.phone + "\r" + t(".seat") + ": " +  ticket_t2.code[3,ticket_t2.code.bytesize]), style: wrap, height:50
+        else
+          row2C.add_cell (t(".fullname") + ": " + "\r" + t(".phone_number") + ": " + "\r" + t(".seat") + ": " +  ticket_t2.code[3,ticket_t2.code.bytesize]), style: wrap, height:50
+        end
+      end
+    end
+    # sheet.add_row [], style: header
+    # Create entries for each item
+  end
+end

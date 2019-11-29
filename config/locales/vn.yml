@@ -124,6 +124,21 @@ vn:
       route: "Lộ trình"
       bus: "Xe"
       slot: "chỗ"
+    export:
+      route: "Lộ trình"
+      phone_number: "SĐT"
+      fullname: "Họ tên"
+      seat: "Chỗ ngồi"
+      point_stop: "Điểm dừng"
+      start_time: "Thời gian xuất phát"
+      end_time: "Thời gian kết thúc (dự kiến)"
+      driver_major: "Lái xe chính"
+      driver_minor: "Lái xe phụ"
+      bus: "Xe"
+      slots: "Số chỗ"
+      floor_1: "Tầng 1"
+      floor_2: "Tầng 2"
+
     trip:
       detail: "Xem"
       edit: "Sửa"

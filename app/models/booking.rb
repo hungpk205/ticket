@@ -5,4 +5,5 @@ class Booking < ApplicationRecord
 
   enum status: %i(paying paid canceled)
 
+
 end
