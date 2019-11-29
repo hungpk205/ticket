@@ -5,7 +5,7 @@
         <h3><%= t(".infor_trip") %></h3>
       </div>
     </div>
-
+    <%= link_to "Excel", export_company_trip_path(format: :xlsx) %>
     <div class="clearfix"></div>
 
     <div class="row">
@@ -90,11 +90,11 @@
                               <td class="vertical-align-mid"><%= booking.phone %></td>
                               <% @list_ticket = "" %>
                               <% booking.tickets.each do |ticket| %>
-                                <% @list_ticket += ticket.code + "," %>
+                                <% @list_ticket += ticket.code[3,ticket.code.bytesize] + "," %>
                               <% end %>
                               <td class="vertical-align-mid text-center">
                                 <%= booking.tickets.size %>
-                                (<%= @list_ticket %>)
+                                (<%= @list_ticket[0,@list_ticket.bytesize-1] %>)
                               </td>
                               <td class="vertical-align-mid"><%= (@trip.price * booking.tickets.size) %></td>
                               <td class="vertical-align-mid" id="status-<%= booking.id %>"><%= Booking.human_enum_name(:status, booking.status) %></td>
@@ -144,7 +144,8 @@
                       <label class="col-form-label col-md-6 col-sm-6 "><%= t(".select_tickets") %> <span class="required">*</span>
                     </div>
                     <div class="col-md-6 col-sm-6  form-group has-feedback">
-                      <%= f.collection_select :ticket_ids, @tickets, :id, :code, {prompt: false}, {multiple: true, class: "select2_multiple form-control height_select_multi"} %>
+                      <%= f.collection_select :ticket_ids, @tickets, :id, lambda {
+                        |ticket| "#{ticket.code[3,ticket.code.bytesize]}"}, {prompt: false}, {multiple: true, class: "select2_multiple form-control height_select_multi"} %>
                     </div>
 
                      <div class="form-group row">

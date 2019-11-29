@@ -9,7 +9,12 @@ Rails.application.routes.draw do
       resources :buses
       resources :routes
       resources :trips do
-        # collection { post :search, to: 'trips#index' }
+        member do
+          get :export
+        end
+        collection do
+          match 'search' => 'trips#search', :via => [:get, :post], :as => :search
+        end
         resources :bookings, only: %i(show update create)
       end
       resources :notifications

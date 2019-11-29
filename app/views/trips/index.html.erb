@@ -7,7 +7,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_content">
-        <%= search_form_for @q, url: {action: "index", controller: "trips"}, class: "form-label-left" do |f| %>
+        <%= search_form_for @q, url: search_company_trips_path, method: :post, class: "form-label-left" do |f| %>
           <div class="col-md-4 col-sm-4">
             <%= f.collection_select :route_start_place_cont, @routes, :start_place, :start_place, {prompt: t(".start_place")}, {class: "form-control"}%>
           </div>

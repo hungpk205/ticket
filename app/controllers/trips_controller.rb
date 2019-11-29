@@ -6,15 +6,20 @@ class TripsController < ApplicationController
   before_action :load_data, only: %i(new create edit)
 
   def index
-    @q = @company.trips.search(params[:q])
+    @q = @company.trips.ransack(params[:q])
     @trips = @q.result.page(params[:page]).per(10)
     @routes = current_user.company.routes
+  end
+
+  def search
+    index
+    render :index
   end
 
   def show
     @trip = @company.trips.find_by id: params[:id]
     @bookings = @trip.bookings.page(params[:page]).per(10)
-    @tickets = @trip.tickets.ticket_empty
+    @tickets = @trip.tickets.ticket_empty.order_by_code
     @booking = Booking.new
     @tickets_t1 = @trip.tickets.tickets_t1
     @tickets_t2 = @trip.tickets.tickets_t2
@@ -45,7 +50,7 @@ class TripsController < ApplicationController
       @driver_minor = Employee.find_by id: params[:trip][:driver_minor_id]
       @driver_minor.busy!
 
-      flash[:success] = t ".success"
+      flash.now[:success] = t ".success"
       redirect_to company_trips_path
     end
   rescue ActiveRecord::RecordInvalid
@@ -60,6 +65,15 @@ class TripsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def export
+    @trip = @company.trips.find_by id: params[:id]
+    @tickets_t1 = @trip.tickets.tickets_t1
+    @tickets_t2 = @trip.tickets.tickets_t2
+    respond_to do |format|
+      format.xlsx
+    end
   end
 
   private
