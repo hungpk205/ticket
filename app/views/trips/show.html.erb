@@ -43,72 +43,11 @@
                 <div><div class="example-seat-empty"></div><span style="float:left">- <%= t(".seat_empty") %></span></div>
                 <div><div class="example-seat-booked"></div><span style="float:left">- <%= t(".seat_booked") %></span></div>
               </div>
-              <ul class="no-style-list-ul">
-                <li id="ticket-floor1">
-                  <p><%= t(".floor_1") %></p>
-                  <ul class="no-style-list-ul">
-                    <li id="floor1-A" class="li-row-floor">
-                      <ul class="no-style-list-ul">
-                        <% @tickets_t1.each do |ticket| %>
-                          <% if ticket.code.include? "A" %>
-                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %></span></li>
-                          <% end %>
-                        <% end %>
-                      </ul>
-                    </li>
-                    <li id="floor1-B" class="li-row-floor">
-                      <ul class="no-style-list-ul">
-                        <% @tickets_t1.each do |ticket| %>
-                          <% if ticket.code.include? "B" %>
-                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %></span></li>
-                          <% end %>
-                        <% end %>
-                      </ul>
-                    </li>
-                    <li id="floor1-C" class="li-row-floor">
-                      <ul class="no-style-list-ul">
-                        <% @tickets_t1.each do |ticket| %>
-                          <% if ticket.code.include? "C" %>
-                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %></span></li>
-                          <% end %>
-                        <% end %>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li id="ticket-floor2">
-                  <p><%= t(".floor_2") %></p>
-                  <ul class="no-style-list-ul">
-                    <li id="floor2-A" class="li-row-floor">
-                      <ul class="no-style-list-ul">
-                        <% @tickets_t2.each do |ticket| %>
-                          <% if ticket.code.include? "A" %>
-                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %></span></li>
-                          <% end %>
-                        <% end %>
-                      </ul>
-                    </li>
-                    <li id="floor2-B" class="li-row-floor">
-                      <ul class="no-style-list-ul">
-                        <% @tickets_t2.each do |ticket| %>
-                          <% if ticket.code.include? "B" %>
-                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %></span></li>
-                          <% end %>
-                        <% end %>
-                      </ul>
-                    </li>
-                    <li id="floor2-C" class="li-row-floor">
-                      <ul class="no-style-list-ul">
-                        <% @tickets_t2.each do |ticket| %>
-                          <% if ticket.code.include? "C" %>
-                            <li class="seat-bus-row seat-<%= ticket.status %>"><span><%= ticket.code[3,ticket.code.bytesize] %><span></li>
-                          <% end %>
-                        <% end %>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+              <% if @trip.bus.vip? %>
+                <%= render "map_seat_vip" %>
+              <% elsif @trip.bus.normal? %>
+                <%= render "map_seat_normal" %>
+              <% end %>
             </div>
             <div class="col-md-9 col-sm-9 ">
               <div class="profile_title">

@@ -79,6 +79,13 @@ vn:
   validates:
     datetime:
       after_current_time: "phải sau thời gian hiện tại"
+      after_start_time: "phải sau thời gian đi"
+    bus:
+      must_be_ready: "đang chạy chuyến khác vào lúc %{start_time} đến %{end_time}"
+    driver_major:
+      must_be_ready: "đang chạy chuyến khác vào lúc %{start_time} đến %{end_time}"
+    driver_minor:
+      must_be_ready: "đang chạy chuyến khác vào lúc %{start_time} đến %{end_time}"
   routes:
     create:
       success: "Tạo lộ trình thành công"
@@ -101,6 +108,12 @@ vn:
       end_place: "Điểm đến"
       route: "Danh sách lộ trình"
   trips:
+    map_seat_vip:
+      floor_1: "Tầng 1"
+      floor_2: "Tấng 2"
+    map_seat_normal:
+      floor_1: "Tầng 1"
+      floor_2: "Tầng 2"
     new:
       trip: "Tạo chuyến đi"
       create: "Biểu mẫu tạo chuyến đi"
@@ -110,6 +123,7 @@ vn:
     form:
       route: "Lộ trình"
       bus: "Xe"
+      slot: "chỗ"
     trip:
       detail: "Xem"
       edit: "Sửa"
@@ -118,6 +132,7 @@ vn:
       start_place: "Điểm đi"
       end_place: "Điểm đến"
       start_time: "Thời gian đi"
+      end_time: "Thời gian đến"
       bus: "Xe"
       driver_major: "Lái xe chính"
       driver_minor: "Lái xe phụ"

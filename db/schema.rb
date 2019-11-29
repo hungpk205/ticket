@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_125509) do
+ActiveRecord::Schema.define(version: 2019_11_29_125947) do
 
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "fullname"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_125509) do
   create_table "trips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "start_time"
+    t.datetime "end_time"
     t.integer "driver_major_id"
     t.integer "driver_minor_id"
     t.decimal "price", precision: 10
@@ -123,9 +124,10 @@ ActiveRecord::Schema.define(version: 2019_11_28_125509) do
     t.bigint "route_id"
     t.bigint "bus_id"
     t.bigint "company_id"
+    t.date "start_day_readonly", default: "2019-11-27"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "start_day_readonly", default: "2019-11-27"
+    t.date "end_time_readonly"
     t.index ["bus_id"], name: "index_trips_on_bus_id"
     t.index ["company_id"], name: "index_trips_on_company_id"
     t.index ["route_id"], name: "index_trips_on_route_id"

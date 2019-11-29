@@ -1,6 +1,7 @@
 <%= simple_form_for [@company,@trip], html: {class: "col-md-6 offset-md-3"} do |f| %>
   <%= f.input :name, class: "col-md-6 col-sm-6 form-control" %>
   <%= f.input :start_time, class: "col-md-6 col-sm-6 form-control", data: {provide:'datepicker'} %>
+  <%= f.input :end_time, class: "col-md-6 col-sm-6 form-control", data: {provide:'datepicker'} %>
   <%= f.input :driver_major_id, as: :select, include_blank: false, collection: @driver_major, class: "col-md-6 col-sm-6 form-control" %>
   <%= f.input :driver_minor_id, as: :select, include_blank: false, collection: @driver_minor, class: "col-md-6 col-sm-6 form-control" %>
   <%= f.input :price, class: "col-md-6 col-sm-6 form-control" %>
@@ -9,7 +10,10 @@
     label_method: lambda {
       |route| "#{route.start_place} - #{route.end_place}"
     }, value_method: :id, class: "col-md-6 col-sm-6 form-control" %>
-  <%= f.input :bus_id, label: t(".bus") , as: :select, include_blank: false, collection: @buses, label_method: :license_plate, value_method: :id, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :bus_id, label: t(".bus") , as: :select, include_blank: false, collection: @buses,
+    label_method: lambda {
+      |bus| "#{bus.license_plate} - #{Bus.human_enum_name(:type_quality, bus.type_quality)} (#{bus.slot} #{t(".slot")})"
+    }, value_method: :id, class: "col-md-6 col-sm-6 form-control" %>
   <div class="ln_solid"></div>
   <div class="item form-group">
     <div class="col-md-6 col-sm-6 offset-md-3">
