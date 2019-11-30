@@ -46,6 +46,7 @@ class BookingsController < ApplicationController
       @booking.canceled!
       @tickets = @booking.tickets
       @tickets.update_all(status: :empty)
+      @tickets.update_all(booking_id: "")
       @success = t(".success")
       respond_to do |format|
         format.js

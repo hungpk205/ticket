@@ -1,0 +1,76 @@
+body {
+  background: #94a3b3 ;
+  font-size: 13px;
+}
+p {
+  margin-bottom: 0px;
+}
+
+.info-trip{
+  text-align: left;
+  margin: 0% 33%;
+  padding: 5px;
+  background-color: white;
+  font-size: 15px;
+}
+
+.no-style-list-ul {
+  list-style: none;
+  display: inline-block;
+  padding-inline-start: inherit;
+  padding-inline-end: 0px;
+}
+
+.seat-bus-row {
+  float: left;
+  padding: 2px 2px;
+  width: 200px;
+  border: 1px solid;
+  margin: 0px 3px;
+  border-radius: 10px;
+  text-align: center;
+}
+.li-row-floor {
+  display: flex;
+  padding-bottom: 40px;
+  float: left;
+  padding-left: 0px;
+}
+.seat-empty {
+  background-color: #f2fbf2;
+}
+.seat-booked {
+  background-color: #d9f4f7;
+}
+.li-row-floor-normal{
+  padding-bottom: 63px;
+  display: flex;
+  float: left;
+  padding-left: 0px;
+}
+.content-seat {
+  white-space: nowrap;
+  text-overflow: clip;
+  overflow: hidden;
+}
+.name-seat {
+  text-align: center;
+  font-weight: bold;
+}
+
+.div-floor {
+  width: 1500px;
+  float: left;
+}
+.seat-row {
+  width: 1300px;
+  float: left;
+}
+.seat-col {
+  width: 200px;
+  float: left;
+}
+.title {
+  font-size: 16px;
+  font-weight: bold;
+}

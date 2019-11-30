@@ -58,6 +58,22 @@ vn:
       company: "Công ty"
       reset: "Nhập lại"
       submit: "Xác nhận"
+  downloads:
+    show:
+      html:
+        erb:
+          route: "Lộ trình"
+          time: "Thời gian"
+          driver_major: "Lái xe chính"
+          driver_minor: "Lát xe phụ"
+          phone: "SĐT"
+          bus: "Xe"
+    map_seat_vip:
+      floor_1: "Tầng 1"
+      floor_2: "Tầng 2"
+    map_seat_normal:
+      floor_1: "Tầng 1"
+      floor_2: "Tầng 2"
   helpers:
     base_title: "Vé xe"
   layouts:
@@ -138,7 +154,6 @@ vn:
       slots: "Số chỗ"
       floor_1: "Tầng 1"
       floor_2: "Tầng 2"
-
     trip:
       detail: "Xem"
       edit: "Sửa"
@@ -188,6 +203,7 @@ vn:
       slot: "chỗ"
       select_tickets: "Chọn vé"
       form_add_booking: "Đặt vé xe"
+      export_pdf: "Tải bảng thông tin chuyến đi"
   homepages:
     home:
       company: "Công ty"

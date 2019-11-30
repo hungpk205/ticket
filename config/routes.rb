@@ -11,11 +11,13 @@ Rails.application.routes.draw do
       resources :trips do
         member do
           get :export
+          get :download, to: "downloads#show"
         end
         collection do
           match 'search' => 'trips#search', :via => [:get, :post], :as => :search
         end
         resources :bookings, only: %i(show update create)
+        # resources :downloads, only: %i(show)
       end
       resources :notifications
     end

@@ -42,6 +42,8 @@ gem "turbolinks", ">= 2.5.3"
 gem "uglifier", ">= 1.3.0"
 gem "zip-zip"
 gem "wdm", ">= 0.1.0"
+gem "wicked_pdf"
+gem "wkhtmltopdf-binary"
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do

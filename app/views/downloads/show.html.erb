@@ -1,0 +1,19 @@
+<div class="content">
+    <div class="info-trip">
+      <div class="content-1">
+        <p class=""><%= t(".route") %>: <%= @trip.route.start_place %> - <%= @trip.route.end_place %></p>
+        <p class=""><%= t(".time") %>: <%= l(@trip.start_time, format: Settings.format_time.long) %> - <%= l(@trip.end_time, format: Settings.format_time.long) %></p>
+      </div>
+      <div class="content-2">
+        <p class=""><%= t(".driver_major") %>: <%= @trip.driver_major.name %>. <%= t(".phone") %>: <%= @trip.driver_major.phone %></p>
+        <p class=""><%= t(".driver_minor") %>: <%= @trip.driver_minor.name %>. <%= t(".phone") %>: <%= @trip.driver_minor.phone %></p>
+      </div>
+    </div>
+    <div class="seat">
+      <% if @trip.bus.normal? && @trip.bus.slot == 46 %>
+        <%= render "map_seat_normal" %>
+      <% elsif @trip.bus.vip? && @trip.bus.slot == 36 %>
+        <%= render "map_seat_vip" %>
+      <% end %>
+    </div>
+</div>
