@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   def load_notifications
     if current_user.company.present?
-      @notifications = current_user.company.notifications.newest.limit(5)
+      @notifications = current_user.company.notifications.newest.limit(10)
     end
   end
 

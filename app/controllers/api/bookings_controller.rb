@@ -87,7 +87,7 @@ class Api::BookingsController < ApplicationController
 
       #create notification
       @company = @trip.company
-      content = params[:fullname] + t(".has_booked") + @trip.name + t(".at") + Time.zone.now.strftime(Settings.format_datetime.long)
+      content = params[:fullname] + t(".has_booked") + @trip.name + t(".at") + Time.zone.now.strftime(Settings.format_time.long)
       url_id = @trip.id
       @notification = @company.notifications.build(content: content, url_id: url_id, status: 0)
       @notification.save!

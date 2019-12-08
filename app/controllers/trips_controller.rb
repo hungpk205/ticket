@@ -4,6 +4,7 @@ class TripsController < ApplicationController
   before_action :load_company
   before_action :load_notifications
   before_action :load_data, only: %i(new create edit)
+  before_action :read_notify, only: :show
 
   def index
     @q = @company.trips.ransack(params[:q])
@@ -172,6 +173,15 @@ class TripsController < ApplicationController
       @ticketC.code = "T2-C#{i}"
       @ticketC.booking_id = ""
       @ticketC.save!
+    end
+  end
+
+  def read_notify
+    if params[:notify_id].present?
+      @notification = Notification.find_by id: params[:notify_id]
+      if @notification.present? && @notification.unread?
+        @notification.readed!
+      end
     end
   end
 end
