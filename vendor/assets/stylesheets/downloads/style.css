@@ -62,11 +62,11 @@ p {
   width: 1500px;
   float: left;
 }
-.seat-row {
+.seat-row-pdf {
   width: 1300px;
   float: left;
 }
-.seat-col {
+.seat-col-pdf {
   width: 200px;
   float: left;
 }

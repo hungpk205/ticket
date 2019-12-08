@@ -34,6 +34,7 @@ class TripsController < ApplicationController
       @trip = @company.trips.build trip_params
       @trip.save!
       @trip.update_columns(start_day_readonly: @trip.start_time.to_date)
+      @trip.update_columns(end_time_readonly: @trip.end_time.to_date)
 
       # Create tickets
       if @trip.bus.vip?

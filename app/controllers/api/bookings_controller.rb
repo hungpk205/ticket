@@ -1,6 +1,7 @@
 require "api/employee_json"
 require "api/booking_json"
 require "api/ticket_json"
+require "api/company_json"
 class Api::BookingsController < ApplicationController
   protect_from_forgery with: :null_session
   def index
@@ -10,17 +11,21 @@ class Api::BookingsController < ApplicationController
       @bookings.each do |booking|
         @employees = Array.new
         @tickets = Array.new
+
         @driver_major = EmployeeJson.new(booking.trip.driver_major.name, booking.trip.driver_major.phone, booking.trip.driver_major.role)
         @employees << @driver_major
         @driver_minor = EmployeeJson.new(booking.trip.driver_minor.name,booking.trip.driver_minor.phone, booking.trip.driver_minor.role)
         @employees << @driver_minor
+
+        @company = booking.trip.company
+        @company_json = CompanyJson.new(@company.name, @company.phone, @company.address)
         price = booking.tickets.size * booking.trip.price
         @list_tickets = booking.tickets
         @list_tickets.each do |ticket|
           @ticket_json = TicketJson.new(ticket.id, ticket.code, ticket.status)
           @tickets << @ticket_json
         end
-        @booking_json = BookingJson.new(booking.id, booking.trip.id, booking.trip.start_time, booking.trip.route.start_place, booking.trip.route.end_place, @employees, price, booking.status, booking.trip.bus.license_plate, booking.created_at, @tickets)
+        @booking_json = BookingJson.new(booking.id, booking.trip.id, booking.trip.start_time.strftime("%H:%M %d/%m/%Y"), booking.trip.end_time.strftime("%H:%M %d/%m/%Y"), booking.trip.route.start_place, booking.trip.route.end_place, @employees, price, booking.status, booking.trip.bus.license_plate, booking.trip.bus.slot, booking.created_at.strftime("%H:%M %d/%m/%Y"), @company_json, @tickets)
 
         @result << @booking_json
       end
@@ -56,13 +61,7 @@ class Api::BookingsController < ApplicationController
       return render json: msg
     end
     Booking.transaction do
-      @booking = Booking.new
-      @booking.fullname = params[:fullname]
-      @booking.phone = params[:phone]
-      @booking.trip_id = params[:trip_id]
-      @booking.save!
-
-      @tickets = Ticket.where(id: params[:tickets], trip_id: params[:trip_id])
+      @tickets = Ticket.where(code: params[:tickets], trip_id: params[:trip_id])
       if @tickets.size == 0
         msg = { status: :bad_request, message: "Not found tickets!", success: false }
         return render json: msg
@@ -72,10 +71,18 @@ class Api::BookingsController < ApplicationController
             msg = { status: :bad_request, message: "Your ticket booked!", success: false }
             return render json: msg
           end
-          ticket.booked!
-          ticket.booking_id = @booking.id
-          ticket.save!
         end
+      end
+      @booking = Booking.new
+      @booking.fullname = params[:fullname]
+      @booking.phone = params[:phone]
+      @booking.trip_id = params[:trip_id]
+      @booking.save!
+
+      @tickets.each do |ticket|
+        ticket.booked!
+        ticket.booking_id = @booking.id
+        ticket.save!
       end
 
       #create notification

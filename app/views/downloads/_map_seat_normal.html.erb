@@ -1,6 +1,6 @@
 <div class="div-floor">
   <p class="title"><%= t(".floor_1") %></p>
-  <div class="seat-row">
+  <div class="seat-row-pdf">
     <div id="floor1-A" class="li-row-floor-normal">
       <ul class="no-style-list-ul">
         <% @tickets_t1.each do |ticket| %>
@@ -50,7 +50,7 @@
       </ul>
     </div>
   </div>
-  <div class="seat-col">
+  <div class="seat-col-pdf">
     <div id="floor1-D" class="li-row-floor" style="padding-bottom:0px">
       <ul class="no-style-list-ul" style="display:inline-grid;">
         <% @tickets_t1.each do |ticket| %>
@@ -71,7 +71,7 @@
 </div>
 <div class="div-floor">
   <p class="title"><%= t(".floor_2") %></p>
-  <div class="seat-row">
+  <div class="seat-row-pdf">
     <div id="floor2-A" class="li-row-floor-normal">
       <ul class="no-style-list-ul">
         <% @tickets_t2.each do |ticket| %>
@@ -121,7 +121,7 @@
       </ul>
     </div>
   </div>
-  <div class="seat-col">
+  <div class="seat-col-pdf">
     <div id="floor2-D" class="li-row-floor" style="padding-bottom:0px">
       <ul class="no-style-list-ul" style="display:inline-grid;">
         <% @tickets_t2.each do |ticket| %>
