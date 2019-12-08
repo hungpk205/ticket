@@ -1,8 +1,9 @@
 class CompanyJson
-  attr_accessor  :name,:banner
+  attr_accessor  :name, :phone, :address
 
-  def initialize(name,banner)
+  def initialize(name, phone, address)
     @name = name
-    @banner = banner
+    @phone = phone
+    @address = address
   end
 end

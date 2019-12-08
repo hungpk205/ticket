@@ -28,6 +28,7 @@ class Trip < ApplicationRecord
   scope :check_end_time, ->(end_time){where("start_day_readonly <= ? AND end_time_readonly >= ?", end_time, end_time)}
   scope :find_by_driver_major, ->(id){where("driver_major_id = ?", id)}
   scope :find_by_driver_minor, ->(id){where("driver_minor_id = ?", id)}
+  scope :order_by_start_time, ->{order(start_time: :asc)}
 
   def self.search_start_time(date)
     where('start_time = ?', date)
