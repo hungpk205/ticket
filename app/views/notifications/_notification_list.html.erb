@@ -1,8 +1,7 @@
 <% notifications.each do |notification| %>
-  <li>
+  <li class="notify-<%= notification.status %>" id="<%= notification.id %>">
     <div class="message_wrapper">
-      <h4 class="heading"><%= t(".trip") %> : <%= link_to load_trip(notification.url_id).name, company_trip_path(notification.company,load_trip(notification.url_id)) %></h4>
-      <blockquote class="message"><%= notification.content %></blockquote>
+      <blockquote class="message"><%= link_to notification.content, company_trip_path(notification.company,load_trip(notification.url_id), notify_id: notification.id) %></blockquote>
       <br />
     </div>
   </li>

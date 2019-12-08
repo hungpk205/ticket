@@ -1,7 +1,5 @@
-<li class="nav-item">
-  <a class="dropdown-item">
-    <span class="message">
-      <%= notification.content %>
-    </span>
-  </a>
+<li class="nav-item notify-<%= notification.status %>">
+  <span class="message">
+      <%= link_to notification.content, company_trip_path(notification.company,load_trip(notification.url_id), notify_id: notification.id), class: "dropdown-item" %>
+  </span>
 </li>
