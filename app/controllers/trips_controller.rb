@@ -19,7 +19,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = @company.trips.find_by id: params[:id]
-    @bookings = @trip.bookings.page(params[:page]).per(10)
+    @bookings = @trip.bookings
     @tickets = @trip.tickets.ticket_empty.order_by_code
     @booking = Booking.new
     @tickets_t1 = @trip.tickets.tickets_t1

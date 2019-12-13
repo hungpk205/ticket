@@ -1,0 +1,21 @@
+<div id="myTabContent" class="tab-content">
+  <div role="tabpanel" class="tab-pane active " id="tab_content1" aria-labelledby="home-tab">
+    <table id="datatable" class="data table table-striped no-margin scrollbar block full">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t(".customer") %></th>
+          <th><%= t(".phone") %></th>
+          <th><%= t(".number_ticket") %></th>
+          <th><%= t(".total_price") %></th>
+          <th><%= t(".status") %></th>
+          <th><%= t(".booked_time") %></th>
+          <th><%= t("action") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render(partial: "booking", locals: {bookings: bookings}) %>
+      </tbody>
+    </table>
+  </div>
+</div>

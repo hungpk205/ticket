@@ -1,0 +1,28 @@
+<% bookings.each_with_index do |booking, index| %>
+  <tr>
+    <td><%= index+1 %></td>
+    <td class="vertical-align-mid"><%= booking.fullname %></td>
+    <td class="vertical-align-mid"><%= booking.phone %></td>
+    <% @list_ticket = "" %>
+    <% booking.tickets.each do |ticket| %>
+      <% @list_ticket += ticket.code[3,ticket.code.bytesize] + "," %>
+    <% end %>
+    <td class="vertical-align-mid text-center">
+      <%= booking.tickets.size %>
+      (<%= @list_ticket[0,@list_ticket.bytesize-1] %>)
+    </td>
+    <td class="vertical-align-mid"><%= (@trip.price * booking.tickets.size) %></td>
+    <td class="vertical-align-mid" id="status-<%= booking.id %>"><%= Booking.human_enum_name(:status, booking.status) %></td>
+    <td class="vertical-align-mid"><%= l booking.created_at, format: Settings.format_time.long %></td>
+    <td class="vertical-align-mid last" id="action-<%= booking.id %>">
+      <% if booking.paying? %>
+        <%= link_to t(".accept"), accept_booking_path(booking.id), class: "btn btn-success btn-xs", method: :put, remote: true %>
+        <%= link_to t(".reject"), reject_booking_path(booking.id), class: "btn btn-danger btn-xs", method: :put, remote: true %>
+      <% elsif booking.paid? %>
+        <%= link_to t(".confirmed"), "javascript:void(0)", class: "btn btn-primary btn-xs" %>
+      <% else %>
+        <%= link_to t(".canceled"), "javascript:void(0)", class: "btn btn-warning btn-xs" %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
