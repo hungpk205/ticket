@@ -1,0 +1,11 @@
+<% trips.each_with_index do |trip, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td class="vertical-align-mid"><%= trip.start_time %></td>
+    <td class="vertical-align-mid"><%= trip.driver_major.name %></td>
+    <td class="vertical-align-mid"><%= trip.driver_minor.name %></td>
+    <td class="vertical-align-mid"><%= trip.bus.license_plate %></td>
+    <td class="vertical-align-mid"><%= Trip.human_enum_name(:status, trip.status) %></td>
+    <td class="vertical-align-mid"><%= trip.price %></td>
+  </tr>
+<% end %>

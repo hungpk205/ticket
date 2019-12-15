@@ -3,16 +3,6 @@
     <div class="title_left">
       <h3><%= t(".route") %></h3>
     </div>
-    <div class="title_right">
-      <div class="col-md-5 col-sm-5  form-group pull-right top_search">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="<%= t("search") %>">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><%= t("find") %></button>
-          </span>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div class="clearfix"></div>
@@ -28,8 +18,8 @@
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
-          <div class="table-responsive">
-            <table class="table table-striped jambo_table bulk_action">
+          <% if @routes.present? %>
+            <table id ="data-routes" class="table table-striped jambo_table bulk_action">
               <thead>
                 <tr class="headings">
                   <th class="column-title text-center"><%= t(".start_place") %> </th>
@@ -43,10 +33,14 @@
                 <%= render @routes %>
               </tbody>
             </table>
-            <%= paginate @routes %>
-          </div>
+          <% else %>
+            <p class="text-center"><%= t("no_data") %></p>
+          <% end %>
         </div>
+        <br />
+        <br />
       </div>
     </div>
   </div>
 </div>
+<%= javascript_include_tag "search_routes" %>

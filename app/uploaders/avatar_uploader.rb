@@ -8,7 +8,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url(*args)
-    "/assets/fallback/" + [version_name, "default-image.jpeg"].compact.join('_')
+    "/fallback/" + [version_name, "default-image.jpeg"].compact.join('_')
   end
 
   def extension_whitelist

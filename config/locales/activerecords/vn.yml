@@ -3,6 +3,7 @@ vn:
     attributes:
       user:
         address: "Địa chỉ"
+        avatar: "Ảnh đại diện"
         fullname: "Họ và tên"
         email: "Địa chỉ email"
         phone: "Số điện thoại"
@@ -84,3 +85,9 @@ vn:
               blank: "không thể để trống"
             banner:
               blank: "không thể để trống"
+        user:
+          attributes:
+            password:
+              too_short: "phải ít nhất 6 kí tự"
+            current_password:
+              blank: "không được để trống"

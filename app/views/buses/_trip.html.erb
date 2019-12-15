@@ -1,0 +1,14 @@
+<% trips.each do |trip| %>
+  <li>
+    <div class="message_date">
+      <h3 class="date text-info"><%= trip.start_time.day %></h3>
+      <p class="month"><%= l trip.start_time, format: "%B" %></p>
+    </div>
+    <div class="message_wrapper">
+      <h4 class="heading"><%= trip.route.start_place %> <%= t(".to") %> <%= trip.route.end_place %></h4>
+      <blockquote class="message"><%= t(".driver_major") %>: <%= trip.driver_major.name %></blockquote>
+      <blockquote class="message"><%= t(".driver_minor") %>: <%= trip.driver_minor.name %></blockquote>
+      <br />
+    </div>
+  </li>
+<% end %>

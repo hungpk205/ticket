@@ -13,8 +13,10 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body class="login">
+  <body>
     <%= yield %>
+    <script>
+      <%= sanitize custom_bootstrap_flash %>
+    </script>
   </body>
 </html>
