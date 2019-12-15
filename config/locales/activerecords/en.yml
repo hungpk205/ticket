@@ -2,6 +2,7 @@ en:
   activerecord:
     attributes:
       user:
+        avatar: "Avatar"
         fullname: "Full name"
         email: "Email address"
         address: "Address"

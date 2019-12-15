@@ -1157,6 +1157,7 @@ h2 {
   background: #F2F5F7;
 }
 .x_panel {
+  margin-bottom: 50px !important;
   position: relative;
   width: 100%;
   margin-bottom: 10px;
@@ -4789,4 +4790,11 @@ ul.notifications {
 }
 .notify-readed {
   background: white !important;
+}
+
+.name-company {
+    font-weight: bold;
+    padding: 18px;
+    color: white;
+    font-size: 25px;
 }

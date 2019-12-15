@@ -1,7 +1,7 @@
 <div class="left_col scroll-view">
   <div class="navbar nav_title" style="border: 0;">
     <% if current_user.company.present? %>
-      <%= current_user.company.name %>
+      <p class="name-company"><%= current_user.company.name %></p>
     <% elsif current_user.admin? %>
       <a class="site_title"><i class="fa fa-paw"></i>
         <span>
@@ -16,7 +16,11 @@
   <!-- menu profile quick info -->
   <div class="profile clearfix">
     <div class="profile_pic">
-      <%= image_tag "img.jpg", class:"img-circle profile_img", alt: "..." %>
+      <% if current_user.avatar.present? %>
+        <%= image_tag current_user.avatar.url, class:"img-circle profile_img", alt: "..." %>
+      <% else %>
+        <%= image_tag "/assets/fallback/default-user.png", class:"img-circle profile_img", alt: "..." %>
+      <% end %>
     </div>
     <div class="profile_info">
       <span><%= t ".welcome" %>,</span>

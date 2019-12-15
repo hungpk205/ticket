@@ -4,7 +4,7 @@ class RoutesController < ApplicationController
   before_action :load_notifications
 
   def index
-    @routes = current_user.company.routes.page(params[:page]).per(10)
+    @routes = current_user.company.routes
   end
 
   def show
@@ -32,7 +32,13 @@ class RoutesController < ApplicationController
   end
 
   def update
-
+    if @route.update_attributes route_params
+      flash[:success] = t ".succss"
+      redirect_to company_routes_path
+    else
+      flash.now[:error] = t ".error"
+      render :edit
+    end
   end
 
   def destroy

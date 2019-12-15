@@ -1,0 +1,23 @@
+<%= simple_form_for @user, html: {class: "col-md-6 offset-md-3"} do |f| %>
+  <%= f.input :fullname, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :email, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :address, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :phone, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :password, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :password_confirmation, class: "col-md-6 col-sm-6 form-control" %>
+  <%= f.input :avatar, class: "col-md-6 col-sm-6 form-control" %>
+  <% if @user.avatar? %>
+    <%= image_tag @user.avatar.url, id: "avatar_profile", width: "200", height: "auto" %>
+  <% else %>
+    <%= image_tag "/assets/fallback/default-user.png", id: "avatar_profile", width: "200", height: "auto" %>
+  <% end %>
+
+  <div class="ln_solid"></div>
+  <div class="item form-group">
+    <div class="col-md-6 col-sm-6 offset-md-3">
+      <button class="btn btn-primary" type="reset"><%= t("reset") %></button>
+      <button type="submit" class="btn btn-success"><%= t("submit") %></button>
+    </div>
+  </div>
+<% end %>
+<%= javascript_include_tag "show_image.js" %>

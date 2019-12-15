@@ -7,15 +7,21 @@
       <ul class=" navbar-right">
         <li class="nav-item dropdown open" style="padding-left: 15px;">
           <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-            <%= image_tag "img.jpg" %>
-              <% if user_signed_in? %>
-                <%= current_user.fullname %>
-              <% else %>
-                Profile
-              <% end %>
+            <% if current_user.avatar.present? %>
+              <%= image_tag current_user.avatar.url %>
+            <% else %>
+              <%= image_tag  "/assets/fallback/default-user.png" %>
+            <% end %>
+            <% if user_signed_in? %>
+              <%= current_user.fullname %>
+            <% else %>
+              Profile
+            <% end %>
           </a>
           <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-            <%= link_to t(".profile"), edit_user_registration_path, class: "dropdown-item" %>
+            <% if can? :show, current_user %>
+              <%= link_to t(".profile"), edit_user_registration_path, class: "dropdown-item" %>
+            <% end %>
             <%= link_to raw("<i class='fa fa-sign-out pull-right'></i> Log out"), destroy_user_session_path, class: "dropdown-item", method: :delete %>
           </div>
         </li>
