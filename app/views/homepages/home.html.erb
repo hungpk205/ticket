@@ -1,80 +1,55 @@
 <div class="right_col" role="main">
-  <div class="row tile_count">
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-user"></i> <%= t(".total_employees") %></span>
-      <div class="count"><%= @company.present? ? @company.employees.size : 0 %></div>
-      <%# <span class="count_bottom"><i class="green">4% </i> From last Week</span> %>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-clock-o"></i> <%= t(".total_routes") %></span>
-      <div class="count"><%= @company.present? ? @company.routes.size : 0 %></div>
-      <%# <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span> %>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-user"></i> <%= t(".total_trips") %></span>
-      <div class="count green"><%= @company.present? ? @company.trips.size : 0 %></div>
-      <%# <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> %>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-user"></i> <%= t(".total_buses") %></span>
-      <div class="count"><%= @company.present? ? @company.buses.size : 0 %></div>
-      <%# <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span> %>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-user"></i> <%= t(".total_booking") %></span>
-      <div class="count"><%= @count_paying %></div>
-      <%# <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> %>
-    </div>
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-user"></i> <%= t(".total_payed") %></span>
-      <div class="count"><%= @count_paid %></div>
-      <%# <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> %>
-    </div>
-  </div>
+  <% if !current_user.admin? %>
+    <%= render partial: "data_company", locals: {company: @company, count_paying: @count_paying, count_paid: @count_paid} %>
+  <% end %>
     <!-- /top tiles -->
   <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-      <div class="dashboard_graph">
-      <% if current_user.company.present? %>
-        <div class="row x_title">
-          <div class="col-md-6">
-            <h3><%= t(".company") %><small> <%= @company.name %></small></h3>
-            <%= link_to t(".edit"), edit_company_path(@company), class: "btn btn-primary" %>
-          </div>
-          <div class="col-md-6">
-          <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-            <span><%= l(Time.zone.now, format: :full) %> <b class="caret"></b>
-          </div>
-        </div>
-      </div>
-        <div class="col-md-9 col-sm-9 col-xs-12">
-          <% if current_user.company.banner.present? %>
-            <%= image_tag current_user.company.banner.url, style:"width:100%;height:auto" %>
-          <% else %>
-            <%= image_tag "default-image.jpg", style:"width:100%;height:auto" %>
-          <% end %>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
-          <div class="x_title">
-            <h2><%= t(".info") %></h2>
-            <div class="clearfix"></div>
-          </div>
-            <div class="col-md-12 col-sm-12 col-xs-6">
-              <div>
-                <p><%= raw @company.company_info %></p>
-              </div>
-              <div>
-                <p class="fa fa-location-arrow"> <%= t(".address") %>: <%= @company.address %></p>
-                <p class="fa fa-phone"> <%= t(".phone") %>: <%= @company.phone %></p>
-              </div>
+    <% if current_user.editor? %>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="dashboard_graph">
+        <% if current_user.company.present? %>
+          <div class="row x_title">
+            <div class="col-md-6">
+              <h3><%= t(".company") %><small> <%= @company.name %></small></h3>
+              <%= link_to t(".edit"), edit_company_path(@company), class: "btn btn-primary" %>
             </div>
-            <div class="clearfix"></div>
+            <div class="col-md-6">
+            <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+              <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+              <span><%= l(Time.zone.now, format: :full) %> <b class="caret"></b>
+            </div>
+          </div>
         </div>
-        <div class="clearfix"></div>
-        </div>
-      <% end %>
-    </div>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <% if current_user.company.banner.present? %>
+              <%= image_tag current_user.company.banner.url, style:"width:100%;height:auto" %>
+            <% else %>
+              <%= image_tag "default-image.jpg", style:"width:100%;height:auto" %>
+            <% end %>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
+            <div class="x_title">
+              <h2><%= t(".info") %></h2>
+              <div class="clearfix"></div>
+            </div>
+              <div class="col-md-12 col-sm-12 col-xs-6">
+                <div>
+                  <p><%= raw @company.company_info %></p>
+                </div>
+                <div>
+                  <p class="fa fa-location-arrow"> <%= t(".address") %>: <%= @company.address %></p>
+                  <p class="fa fa-phone"> <%= t(".phone") %>: <%= @company.phone %></p>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <%= render partial: "users", locals: {users: @users} %>
+    <% end %>
     <br>
   </div>
 </div>

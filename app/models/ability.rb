@@ -28,8 +28,8 @@ class Ability
 
     def permission_admin user
       return unless user.admin?
-      can :read, all
-      can :destroy, Company
+      can :read, :all
+      can :destroy, User
     end
 
     def undefine_user

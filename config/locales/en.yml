@@ -4,6 +4,8 @@ en:
   search: "Search..."
   reset: "Reset"
   submit: "Submit"
+  sure: "Are you sure?"
+  number_order: "NO"
   api:
     bookings:
       create:

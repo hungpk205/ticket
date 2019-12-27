@@ -13,5 +13,8 @@ class HomepagesController < ApplicationController
         @count_paid += trip.bookings.paid.size
       end
     end
+    if current_user.admin?
+      @users = User.non_admin
+    end
   end
 end

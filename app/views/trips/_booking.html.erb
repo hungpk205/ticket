@@ -8,10 +8,15 @@
       <% @list_ticket += ticket.code[3,ticket.code.bytesize] + "," %>
     <% end %>
     <td class="vertical-align-mid text-center">
-      <%= booking.tickets.size %>
-      (<%= @list_ticket[0,@list_ticket.bytesize-1] %>)
+      <% if booking.tickets.size > 0 %>
+        <%= booking.tickets.size %> (<%= @list_ticket[0,@list_ticket.bytesize-1] %>)
+      <% end %>
     </td>
-    <td class="vertical-align-mid"><%= (@trip.price * booking.tickets.size) %></td>
+    <td class="vertical-align-mid">
+      <% if booking.tickets.size > 0 %>
+        <%= (@trip.price * booking.tickets.size) %>
+      <% end %>
+    </td>
     <td class="vertical-align-mid" id="status-<%= booking.id %>"><%= Booking.human_enum_name(:status, booking.status) %></td>
     <td class="vertical-align-mid"><%= l booking.created_at, format: Settings.format_time.long %></td>
     <td class="vertical-align-mid last" id="action-<%= booking.id %>">

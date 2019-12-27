@@ -6,9 +6,9 @@ class Trip < ApplicationRecord
   belongs_to :driver_major, class_name: Employee.name
   belongs_to :driver_minor, class_name: Employee.name
 
-  has_many :tickets
+  has_many :tickets, dependent: :destroy
   has_many :evaluations
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   validates :start_time, presence: true
   validates :end_time, presence: true
