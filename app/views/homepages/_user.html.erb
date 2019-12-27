@@ -1,0 +1,16 @@
+<% @users.each_with_index do |user, index| %>
+  <tr class="headings">
+    <td class="vertical-align-mid text-center"><%= index + 1 %></td>
+    <td class="vertical-align-mid text-center"><%= user.fullname %></td>
+    <td class="vertical-align-mid text-center"><%= user.phone %></td>
+    <td class="vertical-align-mid text-center"><%= user.company.present? ? user.company.name : t(".no_company") %></td>
+    <td class="vertical-align-mid text-center"><%= user.company.present? ? user.company.buses.size : 0 %></td>
+    <td class="vertical-align-mid text-center"><%= user.company.present? ? user.company.employees.size : 0 %></td>
+    <td class="vertical-align-mid text-center"><%= user.company.present? ? user.company.routes.size : 0 %></td>
+    <td class="vertical-align-mid text-center"><%= user.company.present? ? user.company.trips.size : 0 %></td>
+    <td class="vertical-align-mid text-center"><%= l user.created_at, format: Settings.format_time.long %></td>
+    <td class="vertical-align-mid text-center">
+      <%= link_to t(".delete"), user_path(user), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: t("sure")} %>
+    </td>
+  </tr>
+<% end %>

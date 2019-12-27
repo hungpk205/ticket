@@ -17,6 +17,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find_by_id params[:id]
+    if @user.destroy
+      flash[:success] = t ".success"
+    else
+      flash[:error] = t ".error"
+    end
+    redirect_to root_path
+  end
+
   private
   def user_params
     params.require(:user).permit(:fullname, :address, :phone, :email, :password, :password_confirmation)

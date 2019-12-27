@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vn/ do
     devise_for :users
     root "homepages#home"
-    resources :users, only: %i(show edit update)
+    resources :users, only: %i(show edit update destroy)
     resources :companies do
       resources :employees
       resources :buses
