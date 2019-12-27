@@ -4,6 +4,8 @@ en:
   search: "Search..."
   reset: "Reset"
   submit: "Submit"
+  sure: "Are you sure?"
+  number_order: "NO"
   api:
     bookings:
       create:
@@ -37,6 +39,9 @@ en:
   helpers:
     base_title: "Ticket Bus"
   layouts:
+    header:
+      profile: "Profile"
+      logout: "Logput"
     sidebar:
       admin: "Administrator"
       create_company: "Create company"

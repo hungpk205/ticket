@@ -52,11 +52,13 @@ vn:
         confirmation_password: "Xác nhận mật khẩu"
         sign_up: "Đăng ký"
       edit:
+        form: "Biểu mẫu chỉnh sửa thông tin cá nhân"
+        user: "Thông tin cá nhân"
         title: "Chỉnh sửa trang cá nhân"
         edit: "Chỉnh sửa trang cá nhân"
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
+      signed_in: "Đăng nhập thành công."
+      signed_out: "Đăng xuất thành công."
       already_signed_out: "Signed out successfully."
       new:
         title: "Đăng nhập"

@@ -5,6 +5,8 @@ vn:
   reset: "Tạo lại"
   submit: "Xác nhận"
   no_data: "Không có dữ liệu"
+  sure: "Bạn chắc không?"
+  number_order: "STT"
   api:
     bookings:
       create:
@@ -45,6 +47,10 @@ vn:
       to: "đến"
       driver_major: "Lái xe chính"
       driver_minor: "Lái xe phụ"
+    trip:
+      to: "đến"
+      driver_major: "Lái xe chính"
+      driver_minor: "Lái xe phụ"
   check:
     no_permission: "Bạn không có quyền này"
     require_login: "Bạn phải đăng nhập để thực hiện"
@@ -58,6 +64,16 @@ vn:
       company: "Công ty"
       reset: "Nhập lại"
       submit: "Xác nhận"
+  employees:
+    employee:
+      detail: "Chi tiết"
+    index:
+      employee: "Danh sách nhân viên"
+      add: "Thêm"
+      name: "Họ tên"
+      address: "Địa chỉ"
+      role: "Vai trò"
+      action: "Hành động"
   downloads:
     show:
       html:
@@ -77,6 +93,9 @@ vn:
   helpers:
     base_title: "Vé xe"
   layouts:
+    header:
+      profile: "Cá nhân"
+      logout: "Đăng xuất"
     sidebar:
       create_company: "Tạo công ty"
       admin: "Quản trị viên"
@@ -124,6 +143,18 @@ vn:
       end_place: "Điểm đến"
       route: "Danh sách lộ trình"
   trips:
+    bookings:
+      customer: "Tên hành khách"
+      phone: "Số điện thoại"
+      number_ticket: "Số vé đặt"
+      total_price: "Tổng tiền"
+      status: "Trạng thái"
+      booked_time: "Đặt lúc"
+    booking:
+      canceled: "Đã bị hủy"
+      confirmed: "Đã xác nhận"
+      accept: "Đồng ý"
+      reject: "Từ chối"
     map_seat_vip:
       floor_1: "Tầng 1"
       floor_2: "Tấng 2"
@@ -212,6 +243,24 @@ vn:
       logo: "Logo công ty"
       address: "Địa chỉ"
       phone: "Số điện thoại"
+      total_employees: "Tổng nhân viên"
+      total_routes: "Tổng lộ trình"
+      total_trips: "Tổng chuyến đi"
+      total_buses: "Tổng xe"
+      total_booking: "Tổng lượng đặt vé"
+      total_payed: "Tổng vé đã thanh toán"
+    users:
+      username: "Tên người dùng"
+      phone: "Số điện thoại"
+      company_name: "Tên công ty"
+      count_buses: "Số lượng xe"
+      count_employees: "Tổng nhân viên"
+      count_routes: "Tổng lộ trình"
+      count_trips: "Tổng chuyến đi"
+      created_at: "Đăng ký lúc"
+    user:
+      no_company: "Chưa tạo công ty"
+      delete: "Xóa"
   views:
     pagination:
       first: "Trang đầu"

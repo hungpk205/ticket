@@ -1,11 +1,11 @@
 class Company < ApplicationRecord
   belongs_to :user
 
-  has_many :employees
-  has_many :buses
-  has_many :routes
-  has_many :trips
-  has_many :notifications
+  has_many :employees, dependent: :destroy
+  has_many :buses, dependent: :destroy
+  has_many :routes, dependent: :destroy
+  has_many :trips, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   validates :name, presence: true
   validates :logo, presence: true

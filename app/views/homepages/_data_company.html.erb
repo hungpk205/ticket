@@ -1,0 +1,26 @@
+<div class="row tile_count">
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-user"></i> <%= t(".total_employees") %></span>
+      <div class="count"><%= company.present? ? company.employees.size : 0 %></div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-random"></i> <%= t(".total_routes") %></span>
+      <div class="count"><%= company.present? ? company.routes.size : 0 %></div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-road"></i> <%= t(".total_trips") %></span>
+      <div class="count green"><%= company.present? ? company.trips.size : 0 %></div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-bus"></i> <%= t(".total_buses") %></span>
+      <div class="count"><%= company.present? ? company.buses.size : 0 %></div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-ticket"></i> <%= t(".total_booking") %></span>
+      <div class="count"><%= count_paying %></div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-ticket"></i> <%= t(".total_payed") %></span>
+      <div class="count"><%= count_paid %></div>
+    </div>
+  </div>

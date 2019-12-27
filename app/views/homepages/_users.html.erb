@@ -1,0 +1,25 @@
+<div class="x_content">
+  <div class="table-responsive">
+    <table class="table table-striped jambo_table bulk_action">
+      <thead>
+        <tr class="headings">
+          <th class="column-title" style="text-align:center"><%= t("number_order") %> </th>
+          <th class="column-title" style="text-align:center"><%= t(".username") %> </th>
+          <th class="column-title" style="text-align:center"><%= t(".phone") %> </th>
+          <th class="column-title" style="text-align:center"><%= t(".company_name") %> </th>
+          <th class="column-title" style="text-align:center"><%= t(".count_buses") %> </th>
+          <th class="column-title" style="text-align:center"><%= t(".count_employees") %> </th>
+          <th class="column-title" style="text-align:center"><%= t(".count_routes") %> </th>
+          <th class="column-title" style="text-align:center"><%= t(".count_trips") %></th>
+          <th class="column-title" style="text-align:center"><%= t(".created_at") %> </th>
+          <th class="column-title no-link last" style="text-align:center">
+            <span class="nobr"><%= t("action") %></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "user", locals: {companies: @users} %>
+      </tbody>
+    </table>
+  </div>
+</div>
