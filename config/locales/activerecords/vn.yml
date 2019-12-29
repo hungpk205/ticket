@@ -20,7 +20,7 @@ vn:
       employee:
         name: "Họ và tên"
         address: "Địa chỉ"
-        role: "Vị trí"
+        role: "Vai trò"
         avatar: "Ảnh đại diện"
         roles:
           major: "Lái xe chính"
@@ -84,6 +84,20 @@ vn:
             logo:
               blank: "không thể để trống"
             banner:
+              blank: "không thể để trống"
+        employee:
+          attributes:
+            name:
+              blank: "không thể để trống"
+        route:
+          attributes:
+            start_place:
+              blank: "không thể để trống"
+            end_place:
+              blank: "không thể để trống"
+        bus:
+          attributes:
+            license_plate:
               blank: "không thể để trống"
         user:
           attributes:

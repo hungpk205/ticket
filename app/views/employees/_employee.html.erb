@@ -2,6 +2,8 @@
   <td class=" "><%= employee.name %></td>
   <td class=" "><%= employee.address %> </td>
   <td class=" "><%= Employee.human_enum_name(:role, employee.role) %></td>
-  <td class=" last"><a href="#"><%= t(".detail") %></a>
+  <td class=" last">
+    <%= link_to t(".detail"), company_employee_path(current_user.company,employee), class: "btn btn-primary btn-xs"  %>
+    <%= link_to t(".edit"), edit_company_employee_path(current_user.company,employee), class: "btn btn-info btn-xs"  %>
   </td>
 </tr>

@@ -25,12 +25,18 @@ vn:
       error: "Thông tin đặt vé chưa được hủy bây giờ, vui lòng thử lại sau"
       canceled: "Đã bị hủy"
   buses:
+    new:
+      bus: "Tạo mới xe"
+      create: "Biểu mẫu tạo mới xe"
     create:
       success: "Tạo mới xe thành công"
       error: "Tạo mới xe thất bại"
     bus:
       detail: "Chi tiết"
       edit: "Sửa"
+    edit:
+      bus: Thông tin xe
+      create: "Biểu mẫu chỉnh sửa thông tin xe"
     index:
       bus: "Danh sách xe"
       license_plate: "Biển số xe"
@@ -64,9 +70,22 @@ vn:
       company: "Công ty"
       reset: "Nhập lại"
       submit: "Xác nhận"
+    update:
+      success: "Sửa công ty thành công"
+      error: "Sửa công ty thất bại"
   employees:
+    create:
+      success: "Tạo nhân viên thành công"
+      error: "Tạo nhân viên thất bại"
+    new:
+      employee: "Nhân viên"
+      create: "Biểu mẫu tạo nhân viên"
     employee:
-      detail: "Chi tiết"
+      detail: "Xem"
+      edit: "Sửa"
+    edit:
+      success: "Sửa nhân viên thành công"
+      error: "Sửa nhân viên thất bại"
     index:
       employee: "Danh sách nhân viên"
       add: "Thêm"
@@ -74,6 +93,18 @@ vn:
       address: "Địa chỉ"
       role: "Vai trò"
       action: "Hành động"
+    show:
+      bus: "Chi tiết nhân viên"
+      list_trips: "Danh sách chuyến đi"
+      name: "Họ tên"
+      role: "Vai trò"
+      phone: "Số điện thoại"
+      address: "Địa chỉ"
+    trip:
+      to: "đến"
+      driver_major: "Lái xe chính"
+      driver_minor: "Lái xe phụ"
+
   downloads:
     show:
       html:
@@ -93,6 +124,9 @@ vn:
   helpers:
     base_title: "Vé xe"
   layouts:
+    header:
+      profile: "Cá nhân"
+      logout: "Đăng xuất"
     sidebar:
       create_company: "Tạo công ty"
       admin: "Quản trị viên"
@@ -258,10 +292,6 @@ vn:
     user:
       no_company: "Chưa tạo công ty"
       delete: "Xóa"
-  layouts:
-    header:
-      profile: "Cá nhân"
-      logout: "Đăng xuất"
   views:
     pagination:
       first: "Trang đầu"

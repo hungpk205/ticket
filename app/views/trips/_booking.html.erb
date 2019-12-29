@@ -14,7 +14,7 @@
     </td>
     <td class="vertical-align-mid">
       <% if booking.tickets.size > 0 %>
-        <%= (@trip.price * booking.tickets.size) %>
+        <%= (@trip.price * booking.tickets.size) %> VNĐ
       <% end %>
     </td>
     <td class="vertical-align-mid" id="status-<%= booking.id %>"><%= Booking.human_enum_name(:status, booking.status) %></td>
