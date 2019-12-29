@@ -4,7 +4,7 @@ class RoutesController < ApplicationController
   before_action :load_notifications
 
   def index
-    @routes = current_user.company.routes
+    @routes = current_user.company.routes.newest
   end
 
   def show

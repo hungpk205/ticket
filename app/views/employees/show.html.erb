@@ -1,0 +1,56 @@
+<div class="right_col" role="main">
+  <div class="page-title">
+    <div class="title_left">
+      <h3><%= t(".bus") %></h3>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 ">
+      <div class="x_panel">
+        <div class="x_content">
+          <div class="col-md-3 col-sm-3  profile_left">
+            <ul class="list-unstyled user_data">
+              <li>
+                <i class="fa fa-user"></i> <%= t(".name") %>: <%= @employee.name %>
+              </li>
+              <li>
+                <i class="fa fa-phone"></i> <%= t(".phone") %>: <%= @employee.phone %>
+              </li>
+              <li>
+                <i class="fa fa-location-arrow"></i> <%= t(".address") %>: <%= @employee.address %>
+              </li>
+              <li>
+                <i class="fa fa-user"></i> <%= t(".role") %>: <%= Employee.human_enum_name(:role, @employee.role) %>
+              </li>
+            </ul>
+            <br />
+          </div>
+          <div class="col-md-9 col-sm-9 ">
+            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+              <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                <li role="presentation" class="active"><a href="" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true"><%= t(".list_trips") %></a>
+                </li>
+              </ul>
+              <div id="myTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane active " id="tab_content1" aria-labelledby="home-tab">
+                  <!-- start recent activity -->
+                  <ul class="messages">
+                    <% if @trips.size%>
+                      <%= render partial: "trip", locals: {trips: @trips }%>
+                    <% else %>
+                      <p style="text-align:center"><%= t(".no_data") %></p>
+                    <% end %>
+                  </ul>
+                  <!-- end recent activity -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

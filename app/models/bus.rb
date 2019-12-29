@@ -7,5 +7,7 @@ class Bus < ApplicationRecord
   enum type_quality: %i(normal vip)
   enum type_floor: %i(one two)
 
+  validates :license_plate, presence: true
+
   scope :is_ready, ->{where(status: :ready)}
 end

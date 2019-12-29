@@ -8,8 +8,8 @@
             <li class="seat-bus-row seat-<%= ticket.status %>">
               <div class="content-seat" style="text-align:left">
                 <div class="name-seat">Ghế: <%= ticket.code[3,ticket.code.bytesize] %></div>
-                <div>KH: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
-                <div>SĐT: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
+                <div>KH: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
+                <div>SĐT: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
                 <div>Điểm dừng: ......................................</div>
               </div>
             </li>
@@ -24,8 +24,8 @@
             <li class="seat-bus-row seat-<%= ticket.status %>">
               <div class="content-seat" style="text-align:left">
                 <div class="name-seat">Ghế: <%= ticket.code[3,ticket.code.bytesize] %></div>
-                <div>KH: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
-                <div>SĐT: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
+                <div>KH: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
+                <div>SĐT: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
                 <div>Điểm dừng: ......................................</div>
               </div>
             </li>
@@ -40,8 +40,8 @@
             <li class="seat-bus-row seat-<%= ticket.status %>">
               <div class="content-seat" style="text-align:left">
                 <div class="name-seat">Ghế: <%= ticket.code[3,ticket.code.bytesize] %></div>
-                <div>KH: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
-                <div>SĐT: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
+                <div>KH: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
+                <div>SĐT: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
                 <div>Điểm dừng: ......................................</div>
               </div>
             </li>
@@ -58,8 +58,8 @@
             <li class="seat-bus-row seat-<%= ticket.status %>"><span>
               <div class="content-seat" style="text-align:left">
                 <div class="name-seat">Ghế: <%= ticket.code[3,ticket.code.bytesize] %></div>
-                <div>KH: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
-                <div>SĐT: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
+                <div>KH: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
+                <div>SĐT: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
                 <div>Điểm dừng: ......................................</div>
               </div>
             </li>
@@ -79,8 +79,8 @@
             <li class="seat-bus-row seat-<%= ticket.status %>">
               <div class="content-seat" style="text-align:left">
                 <div class="name-seat">Ghế: <%= ticket.code[3,ticket.code.bytesize] %></div>
-                <div>KH: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
-                <div>SĐT: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
+                <div>KH: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
+                <div>SĐT: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
                 <div>Điểm dừng: ......................................</div>
               </div>
             </li>
@@ -95,8 +95,8 @@
             <li class="seat-bus-row seat-<%= ticket.status %>">
               <div class="content-seat" style="text-align:left">
                 <div class="name-seat">Ghế: <%= ticket.code[3,ticket.code.bytesize] %></div>
-                <div>KH: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
-                <div>SĐT: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
+                <div>KH: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
+                <div>SĐT: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
                 <div>Điểm dừng: ......................................</div>
               </div>
             </li>
@@ -111,8 +111,8 @@
             <li class="seat-bus-row seat-<%= ticket.status %>">
               <div class="content-seat" style="text-align:left">
                 <div class="name-seat">Ghế: <%= ticket.code[3,ticket.code.bytesize] %></div>
-                <div>KH: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
-                <div>SĐT: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
+                <div>KH: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
+                <div>SĐT: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
                 <div>Điểm dừng: ......................................</div>
               </div>
             </li>
@@ -129,8 +129,8 @@
             <li class="seat-bus-row seat-<%= ticket.status %>">
               <div class="content-seat" style="text-align:left">
                 <div class="name-seat">Ghế: <%= ticket.code[3,ticket.code.bytesize] %></div>
-                <div>KH: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
-                <div>SĐT: <%= ticket.booking.present? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
+                <div>KH: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.fullname : "...................................................." %></div>
+                <div>SĐT: <%= ticket.booking.present? && ticket.booking.paid? && ticket.booked? ? ticket.booking.phone : "...................................................." %></div>
                 <div>Điểm dừng: ......................................</div>
               </div>
             </li>

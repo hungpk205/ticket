@@ -15,5 +15,6 @@ Rails.application.config.assets.precompile += %w( ckeditor/* )
 Rails.application.config.assets.precompile += %w( show_image.js )
 Rails.application.config.assets.precompile += %w( search_booking.js )
 Rails.application.config.assets.precompile += %w( search_routes.js )
+Rails.application.config.assets.precompile += %w( search_employees.js )
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )

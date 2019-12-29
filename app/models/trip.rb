@@ -29,6 +29,8 @@ class Trip < ApplicationRecord
   scope :find_by_driver_major, ->(id){where("driver_major_id = ?", id)}
   scope :find_by_driver_minor, ->(id){where("driver_minor_id = ?", id)}
   scope :order_by_start_time, ->{order(start_time: :asc)}
+  scope :trips_of_driver_major, ->(id){where("driver_major_id = ?", id)}
+  scope :trips_of_driver_minor, ->(id){where("driver_minor_id = ?", id)}
 
   def self.search_start_time(date)
     where('start_time = ?', date)
