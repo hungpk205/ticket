@@ -484,7 +484,7 @@ GEM
       railties (>= 5.0)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
     wicked_pdf (1.4.0)
       activesupport
     wkhtmltopdf-binary (0.12.5)
@@ -494,6 +494,7 @@ GEM
       rubyzip (>= 1.0.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
   x86_64-linux
 
