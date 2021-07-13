@@ -10,7 +10,7 @@ gem "bcrypt", platforms: :ruby
 gem "bootstrap-sass"
 gem "bootstrap-datepicker-rails"
 gem "cancancan"
-gem "carrierwave", "~> 2.0"
+gem "carrierwave", "~> 2.1"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "ckeditor"
